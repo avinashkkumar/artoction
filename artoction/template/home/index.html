@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={% static 'home/css/style.css' %}>
+    {% block head %}{% endblock head %}
+    <title>
+        {% block title %}{% endblock title %}
+    </title>
+</head>
+
+<body>
+    <nav>
+        <div class="logo" id="logo">
+            KEIBAI
+        </div>
+        <div class="search" id="search">
+            <form action="" method="post"> {% csrf_token %}
+                <input type="text">
+                <button type="submit">Go</button>
+            </form>
+        </div>
+        <div class="link" id="link">
+            <ul class="links" id="links">
+                <li class="link1" id="link1">Home</li>
+                <li class="link2" id="link2">About</li>
+                <li class="link3" id="link3">Work</li>
+                <li class="user" id="user">
+                    <div>
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="burger" id="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+    <div class="content" id="content">
+        {% block content %}
+            {{ info }}
+        {% endblock content %}
+    </div>
+    <footer>
+        <div class="fs1" id="fs1">
+            <div class="map" id="map">
+                <h3>KEIBAI</h3>
+                <ul class="sitemap" id="sitemap">
+                    <li>Account</li>
+                    <li>Products</li>
+                    <li>Auctions</li>
+                    <li>How it Works</li>
+                    <li>FAQ</li>
+                    <li>Support</li>
+                    <li>Terms of use</li>
+                </ul>
+            </div>
+            <div class="social" id="social">
+                <h3>Social media</h3>
+                <ul class="socialink" id="socialink">
+                    <li><img src={% static 'home/img/facebook.svg' %} alt=""> @artoction</li>
+                    <li><img src={% static 'home/img/instagram.svg' %} alt=""> @artoction</li>
+                    <li><img src={% static 'home/img/linkedin.svg' %} alt=""> @artoction</li>
+                    <li><img src={% static 'home/img/twitch.svg' %} alt=""> @auctionart</li>
+                    <li><img src={% static 'home/img/twitter.svg' %} alt=""> @artoction</li>
+                </ul>
+            </div>
+        </div>
+        <div class="fs2" id="fs2">
+            <h3>feedback</h3>
+            <form action="" method="post" class="feedback">
+                <input type="email" name="email" id="" class="email" placeholder="Your email for further contact ...">
+                <textarea name="fetext" id="" cols="20" rows="10" placeholder="What do you think "></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+    </footer>
+
+</body>
+<script src={% static 'home/js/app.js' %}></script>
+
+</html>

@@ -1,0 +1,295 @@
+@font-face{
+    font-family: cascadia;
+    src: url('./WorkSans.ttf');
+    font-weight: 400;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0px;
+    box-sizing: border-box;
+    font-family: cascadia;
+}
+/* ************************* navigation ************************ */
+nav{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    height: 6vh;
+    align-items: center;
+    background-color: blueviolet;
+    color: #ffffff;
+}
+
+.logo{
+    font-size: 1.4rem;
+    letter-spacing: 10px;
+    font-weight: 900;
+}
+
+.links{
+    list-style: none;
+    display: flex;
+    width: 400px;
+    justify-content: space-around;
+    font-size: 1.4rem;
+}
+
+.links li{
+    border-bottom: 3px solid blueviolet;
+}
+
+.links li:hover{
+    border-bottom: 3px solid white;
+}
+
+.search form{
+    display: flex;
+}
+
+.search form input{
+    width: 15rem;
+    padding: 0.2rem;
+    border-top-left-radius: 0.2rem;
+    border-bottom-left-radius: 0.2rem;
+}
+
+.search form button{
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+    border-top-right-radius: 0.2rem;
+    border-bottom-right-radius: 0.2rem;
+    background-color: #50bfff;
+    width: 3.1rem;
+    height: 3.5vh;
+}
+
+.user div {
+    margin: 0px;
+    padding: 0px;
+    border-radius: 50%;
+    height: 1.6rem;
+    width: 1.6rem;
+    background-color: yellowgreen;
+}
+
+.burger div {
+    width: 1.5rem;
+    height: 0.2rem;
+    background-color: #ffffff;
+    margin: 5px;
+    transition: all 0.3s ease-in-out;
+}
+.burger{
+    display: none;
+}
+
+/* *********************** responsive navigation ****************** */
+@media screen and (max-width: 880px) {
+    .links{
+        width: 300px;
+        font-size: 1.2rem;
+    }
+    
+    .search form button {
+        width: 2.5rem;
+    }
+
+    .search form input{
+        width: 10rem;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    body{
+        overflow-x: hidden;
+    }
+    .logo{
+        letter-spacing: 5px;
+    }
+    .link{
+        color: black;
+    }
+    .links{
+        position: absolute;
+        right: 0px;
+        height: 94vh;
+        top: 6vh;
+        display: flex;
+        flex-direction: column-reverse;
+        background-color: #50bfff;
+        align-items: center;
+        width: 60%;
+        transform: translate(100%);
+        transition: transform 0.4s ease-in-out;
+    }
+
+    .links li{
+        opacity: 0;
+    }
+    .user div{
+        width: 5rem;
+        height: 5rem;
+    }
+    .burger{
+        display: block;
+    }
+}
+
+@media screen and (max-width:550px) {
+    .links{
+        width: 80%;
+    }    
+}
+
+@media screen and (max-width: 450px) {
+    .search form input{
+        width: 8rem;
+    }
+    .search form button{
+        width: 2.2rem;
+    }
+    .links{
+        width: 100%;
+    }
+}
+
+
+/* ************ css for javascript toggle and animation ************ */
+.navActive{
+    transform: translate(0px);
+}
+
+@keyframes navFade{
+    from{
+        opacity: 0;
+        transform: translate(50px);
+    }
+    to{
+        opacity: 1;
+        transform: translate(0px);
+    }
+}
+
+.toggle .line1{
+    transform: rotate( -45deg) translate(-3.5px , 2px);
+    /* background-color: red; */
+}
+.toggle .line2{
+    display: none;
+}
+.toggle .line3{
+    transform: rotate( 45deg ) translate(-3.5px, -2px);
+    /* background-color: red; */
+}
+
+
+/* ************************ content ******************************** */
+.content{
+    height: 30rem;
+}
+
+/* ************************ footer ******************************** */
+
+footer{
+    background-color: pink;
+    padding-left: 10%;
+    padding-right: 10%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.sitemap li{
+    list-style: disc;
+}
+
+.fs1{
+    display: flex ;
+    flex-wrap: wrap;
+}
+
+.map{
+    width: 12rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.social{
+    width: 12rem;
+    padding-left: 2rem;
+    padding-right: 1rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+
+.sitemap li{
+    list-style: none;
+    margin-left: 1rem;
+}
+
+.socialink li{
+    margin-left: 1rem;
+    list-style: none;
+}
+
+.fs2{
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+
+.feedback{
+    display: flex;
+    flex-direction: column;
+}
+
+.feedback input , textarea{
+    border: 1px solid black;
+    width: 18rem;
+    margin-bottom: 0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+    border-radius: 0.2rem;
+    box-shadow: none;
+    background-color: white;
+}
+
+.feedback textarea{
+    height: 8rem;
+}
+
+.feedback label{
+    padding-left: 1rem;
+    color: #ffffff;
+    font-size: 0.8rem;
+    margin-bottom: 0.1rem;
+}
+
+@media screen and (max-width: 800px) {
+    footer{
+        justify-content: space-around;
+    }    
+}
+@media screen and (max-width: 440px) {
+    .fs1{
+        justify-content: space-around;
+    } 
+    .map{
+        padding: 0px;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }   
+    .social{
+        padding: 0px;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }   
+}
