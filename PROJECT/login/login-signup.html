@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Log-in/Sign-up</title>
+    <link rel="stylesheet" href="../login/login-signup.css">
+</head>
+<body>
+    <div class="forms-container">
+        <div class="form-box">
+            <div class="button-box">
+                <div id="btn"></div>
+                <button type="button" class="toggle-button" onclick="login()">Log-In</button>
+                <button type="button" class="toggle-button" onclick="signup()">Sign-Up</button>
+            </div>
+
+                <form class="log-in" id="login">
+                    <input type="text" class="form-field" placeholder="Username" required>
+                    <input type="password" class="form-field" placeholder="Password" required>
+                    <input type="checkbox" class="checkbox"><span>Remember Password</span>
+                    <button type="submit" class="submit">Log-In</button>
+                </form>
+                <form class="sign-up" id="signup">
+                    <input type="text" class="form-field" placeholder="Username" required>
+                    <input type="email" class="form-field" placeholder="Email" required>
+                    <input type="password" id="txtPassword" class="form-field" placeholder="Password" minlength="8" required>
+                    <div class="hide">Must contain at least 8 characters</div>
+                    <input type="password" id="txtConfirmPassword" class="form-field" placeholder="Confirm-Password" required>
+                    <div class="hide1">Password must be same as above</div>
+                    <input type="checkbox" class="checkbox"><span>I have read the agreement.</span>
+                    <button type="submit" class="submit" id="btnSubmit" onclick="Validate()" >Sign-Up</button>
+                </form>
+        </div>
+    </div>
+
+<script src="../login/login-signup.js"></script>
+</body>
+</html>

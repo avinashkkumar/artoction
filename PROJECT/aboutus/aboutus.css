@@ -1,0 +1,73 @@
+
+.about-us-main{
+    padding: 6rem;
+    background-color: white;
+}
+
+.aboutus{
+    display: flex;
+    padding: 2rem;
+    background-color: rgb(210, 163, 253);
+}
+
+.about-img{
+    width: 40%;
+    padding: 2rem;
+}
+
+.about-img img{
+    width: 100%;
+}
+
+.about-img h1{
+    font-size: 3rem;
+    color: palevioletred;
+    float:right;
+    padding: 1rem;
+}
+
+.about-text{
+    color: white;
+    width: 60%;
+    padding: 2rem;
+    font-size: medium;
+    border-radius: 3rem;
+}
+
+.about-text h2{
+    font-size: 2rem;
+    text-align: center;
+}
+
+.about-text p{
+    font-size: 1.5rem;
+}
+
+.brand-diff{
+    justify-content: center;
+    display: flex;
+    padding: 1rem;
+}
+
+.diff{
+    margin: 2rem;
+    cursor: pointer;
+    border-radius: 1rem;
+    background-color: aquamarine;
+    transition: transform .2s;
+    padding: 4rem;
+}
+
+.diff-head{
+    background-color: rgb(210, 163, 253);
+    font-size: 1.5rem;
+    text-align: center;
+    color: white;
+    padding: 1rem;;
+}
+  
+  .diff:hover {
+    -ms-transform: scale(1.5); 
+    -webkit-transform: scale(1.5); 
+    transform: scale(1.5);
+  }
