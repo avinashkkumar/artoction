@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="register">
+    <form action="" class="registerForm" method="post">
+        <input type="email" name="" id="email" placeholder="Email">
+        <input type="text" name="" id="password1" placeholder="Password">
+        <button type="submit">Login</button>
+    </form>
+    <div class="rlopt">
+        <ul>
+            <li ><a href="login">Login</a></li>
+            <li class="ractive"><a href="register">Register</a></li>
+        </ul>
+    </div>
+</div>
+{% endblock content %}

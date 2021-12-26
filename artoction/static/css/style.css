@@ -245,7 +245,7 @@ nav{
     flex-direction: column;
     margin: 1rem;
     padding: 3rem;
-    background-color: rgb(255, 102, 255);
+    background-image: linear-gradient(to bottom right, #892be286,#ff66ff98);
     border-radius: 0.5rem;
 }
 
@@ -616,6 +616,7 @@ label{
 .onpldes li{
     list-style: none;
     margin-top: 0.4rem;
+    text-align: center;
 }
 
 .onpldes ul li a{

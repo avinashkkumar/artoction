@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="aucList">
+    <h1 class="ph">Auction Listing</h1>
+    <div class="ongoing">
+        <h2 class="listh">Ongoing Auction</h2>
+        <div class="oglist">
+            <!-- ongoing auction -->
+            <!-- use for loop here for the replication of the 
+            horizontal division of product list -->
+            <div class="ogplist">
+                <div class="ogplimg">
+                    <img src="https://picsum.photos/200/200" alt="">
+                </div>
+                <div class="onpldes">
+                    <ul>
+                        <li>{{ title }}</li>
+                        <li>INR {{ price }}</li>
+                        <li>{{ buyer }}</li>
+                        <li class="bid"><a href="product"> BID NOW</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ogplist">
+                <div class="ogplimg">
+                    <img src="https://picsum.photos/200/200" alt="">
+                </div>
+                <div class="onpldes">
+                    <ul>
+                        <li>{{ title }}</li>
+                        <li>INR {{ price }}</li>
+                        <li>{{ buyer }}</li>
+                        <li class="bid"><a href="product"> BID NOW</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ogplist">
+                <div class="ogplimg">
+                    <img src="https://picsum.photos/200/200" alt="">
+                </div>
+                <div class="onpldes">
+                    <ul>
+                        <li>{{ title }}</li>
+                        <li>INR {{ price }}</li>
+                        <li>{{ buyer }}</li>
+                        <li class="bid"><a href="product"> BID NOW</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- for loop ends here  -->
+            <div class="more">
+                <h3> <a href="ongoing"> View More</a></h3>
+            </div>
+        </div>
+    </div>
+    <div class="upcoming">
+        <h2 class="listh">Upcoming Auction</h2>
+        <div class="oglist">
+            <!-- upcoming auction -->
+            <!-- use for loop here for the replication of the 
+            horizontal division of product list -->
+            <div class="ogplist">
+                <div class="ogplimg">
+                    <img src="https://picsum.photos/200/200" alt="">
+                </div>
+                <div class="onpldes">
+                    <ul>
+                        <li>{{ title }}</li>
+                        <li>INR {{ price }}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ogplist">
+                <div class="ogplimg">
+                    <img src="https://picsum.photos/200/200" alt="">
+                </div>
+                <div class="onpldes">
+                    <ul>
+                        <li>{{ title }}</li>
+                        <li>INR {{ price }}</li>
+                        <li>{{ buyer }}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ogplist">
+                <div class="ogplimg">
+                    <img src="https://picsum.photos/200/200" alt="">
+                </div>
+                <div class="onpldes">
+                    <ul>
+                        <li>{{ title }}</li>
+                        <li>INR {{ price }}</li>
+                        <li>{{ buyer }}</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- for loop ends here  -->
+            <div class="more">
+                <h3> <a href="upcoming"> View More</a></h3>
+            </div>
+        </div>
+    </div>
+    <div class="completed">
+        <h2 class="listh">Completed Auction</h2>
+        <div class="oglist">
+            <!-- use for loop here for the replication of the 
+                horizontal division of product list -->
+                <!-- completed auction -->
+                <div class="ogplist">
+                    <div class="ogplimg">
+                        <img src="https://picsum.photos/200/200" alt="">
+                    </div>
+                    <div class="onpldes">
+                        <ul>
+                            <li>{{ title }}</li>
+                            <li>INR {{ price }}</li>
+                            <li>{{ buyer }}</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="ogplist">
+                    <div class="ogplimg">
+                        <img src="https://picsum.photos/200/200" alt="">
+                    </div>
+                    <div class="onpldes">
+                    <ul>
+                        <li>{{ title }}</li>
+                        <li>INR {{ price }}</li>
+                        <li>{{ buyer }}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ogplist">
+                <div class="ogplimg">
+                    <img src="https://picsum.photos/200/200" alt="">
+                </div>
+                <div class="onpldes">
+                    <ul>
+                        <li>{{ title }}</li>
+                        <li>INR {{ price }}</li>
+                        <li>{{ buyer }}</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- for loop ends here  -->
+            <div class="more">
+                <h3> <a href="completed"> View More</a></h3>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

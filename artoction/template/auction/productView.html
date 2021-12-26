@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="prodcont">
+    <div class="prod" id="prod">
+        <div class="prodimg">
+            <div class="carousel-container">
+                <!-- for loop here  -->
+                <div class="mySlides animate">
+                    <img src="https://wallpapershome.com/images/pages/pic_h/16239.jpg" alt="slide" />
+                </div>
+
+                <div class="mySlides animate">
+                    <img src="https://wallpapershome.com/images/pages/pic_h/23525.jpg" alt="slide" />
+                </div>
+
+                <div class="mySlides animate">
+                    <img src="https://wallpapershome.com/images/pages/pic_h/23277.jpg" alt="slide" />
+                </div>
+
+                <div class="mySlides animate">
+                    <img src="https://wallpapershome.com/images/pages/pic_h/12596.jpg" alt="slide" />
+                </div>
+
+                <div class="mySlides animate">
+                    <img src="https://wallpapershome.com/images/pages/pic_h/23419.jpg" alt="slide" />
+                </div>
+                <!-- for loop till here -->
+
+                <!-- Next and previous buttons -->
+                <a class="prev" onclick="prevSlide()">&#10094;</a>
+                <a class="next" onclick="nextSlide()">&#10095;</a>
+
+                <!-- The dots/circles -->
+                <div class="dots-container">
+                    <span class="dots" onclick="currentSlide(1)"></span>
+                    <span class="dots" onclick="currentSlide(2)"></span>
+                    <span class="dots" onclick="currentSlide(3)"></span>
+                    <span class="dots" onclick="currentSlide(4)"></span>
+                    <span class="dots" onclick="currentSlide(5)"></span>
+                </div>
+            </div>
+        </div>
+        <div class="prodtir">
+            <div class="pintro">
+                <h1 class="prodt">{{ title }}<br>---------------------------------</h1>
+                <p>&nbsp; Listed by : @asdfasdf</p>
+            </div>
+            <div class="pcrp">
+                <ul>
+                    <li>Current pricing : INR {{ price }}</li>
+                    <li>By : {{ prodUser }}</li>
+                </ul>
+                <h3>Bid your price </h3>
+                <form action="" method="post">
+                    <label for="yourbid">Append price with my bid : </label><br>
+                    <input type="text" id="yourbid"><br>
+                    <button>Update</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="proddes">
+        <h2>Notes from item owner </h2>
+        <P>{{ notes }}</P>
+    </div>
+</div>
+{% endblock content %}

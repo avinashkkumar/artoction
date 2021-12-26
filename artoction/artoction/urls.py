@@ -21,16 +21,28 @@ from home.views import (
     )
 
 from auction.views import (
-    auction_land
+    auction_land,
+    ongoing,
+    upcoming,
+    completed,
+    product,
 )
 
 from user.views import (
-    login_view
+    account,
+    login,
+    register,
 )
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',landing_view),
-    path('auctions', auction_land, name='auctions'),
-    path('login', login_view, name="login")
+    path('auction', auction_land, name='auctions'),
+    path('ongoing', ongoing, name="ongoing"),
+    path('upcoming',upcoming , name="upcoming"),
+    path('completed', completed, name="completed"),
+    path('account', account, name="account"),
+    path('login', login, name="login"),
+    path('register', register, name="register"),
+    path('product', product, name="product"),
 ]
