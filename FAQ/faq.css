@@ -32,17 +32,8 @@ summary{
     cursor: pointer;
     outline: none;
     font-size: 1.5rem;
+    font-weight: bold;
 }
 .text{
     font-size: 1.3rem;
-}
-.pt1:hover{
-    -ms-transform: scale(1.05); 
-    -webkit-transform: scale(1.05); 
-    transform: scale(1.05);
-}
-.pt2:hover{
-    -ms-transform: scale(1.05); 
-    -webkit-transform: scale(1.05); 
-    transform: scale(1.05);
 }
