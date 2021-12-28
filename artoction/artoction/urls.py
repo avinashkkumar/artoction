@@ -15,6 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path ,include 
+from django.conf import settings
+from django.conf.urls.static import static
+from artoction.settings import MEDIA_ROOT
 
 from home.views import (
     landing_view,
@@ -44,5 +47,11 @@ urlpatterns = [
     path('account', account, name="account"),
     path('login', login, name="login"),
     path('register', register, name="register"),
-    path('product', product, name="product"),
+    path('product/<int:id>', product, name="product"),
+
+
+
+
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root = MEDIA_ROOT) 

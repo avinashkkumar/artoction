@@ -7,23 +7,23 @@
             <div class="carousel-container">
                 <!-- for loop here  -->
                 <div class="mySlides animate">
-                    <img src="https://wallpapershome.com/images/pages/pic_h/16239.jpg" alt="slide" />
+                    <img src= "/static/{{ this.image1 }}"  alt="slide" />
                 </div>
 
                 <div class="mySlides animate">
-                    <img src="https://wallpapershome.com/images/pages/pic_h/23525.jpg" alt="slide" />
+                    <img src= "/static/{{ this.image2 }}" alt="slide" />
                 </div>
 
                 <div class="mySlides animate">
-                    <img src="https://wallpapershome.com/images/pages/pic_h/23277.jpg" alt="slide" />
+                    <img src= "/static/{{ this.image3 }}" alt="slide" />
                 </div>
 
                 <div class="mySlides animate">
-                    <img src="https://wallpapershome.com/images/pages/pic_h/12596.jpg" alt="slide" />
+                    <img src= "/static/{{ this.image4 }}" alt="slide" />
                 </div>
 
                 <div class="mySlides animate">
-                    <img src="https://wallpapershome.com/images/pages/pic_h/23419.jpg" alt="slide" />
+                    <img src= "/static/{{ this.image5 }}" alt="slide" />
                 </div>
                 <!-- for loop till here -->
 
@@ -43,26 +43,28 @@
         </div>
         <div class="prodtir">
             <div class="pintro">
-                <h1 class="prodt">{{ title }}<br>---------------------------------</h1>
-                <p>&nbsp; Listed by : @asdfasdf</p>
+                <h1 class="prodt">{{ this.name }}<br>---------------------------------</h1>
+                <p>&nbsp; Listed by : {{ this.listedBy }} </p>
             </div>
             <div class="pcrp">
                 <ul>
-                    <li>Current pricing : INR {{ price }}</li>
-                    <li>By : {{ prodUser }}</li>
+                    <li>Current pricing : INR {{ this.current_price }}</li>
+                    <li>By : {{ this.current_bidder }}</li>
                 </ul>
                 <h3>Bid your price </h3>
                 <form action="" method="post">
                     <label for="yourbid">Append price with my bid : </label><br>
                     <input type="text" id="yourbid"><br>
-                    <button>Update</button>
+                    <button>Update</button> {% csrf_token %}
                 </form>
             </div>
         </div>
     </div>
     <div class="proddes">
         <h2>Notes from item owner </h2>
-        <P>{{ notes }}</P>
+        <p>{{ this.notesByLister }}</p>
     </div>
 </div>
+
+
 {% endblock content %}

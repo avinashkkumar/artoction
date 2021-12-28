@@ -1,6 +1,6 @@
 from django.http.response import HttpResponse
-from django.shortcuts import render, HttpResponse
-
+from django.shortcuts import render
+from auction.models import Product
 # Create your views here.
 
 # auction listing page is here 
@@ -44,9 +44,14 @@ def completed(request, *args, **kwargs):
 
 
 # product view here 
-def product(request, *args, **kwargs):
+def product(request,id = None, *args, **kwargs):
+    product_obj = Product.objects.get(id=id)
+    print(product_obj)
+
     context = {"title":"Product Title is Title",
                "Price" : 6541,
                "prodUser":"User Name",
-               "notes":"This is a note from the auther of the post"}
+               "notes":"This is a note from the auther of the post",
+               'this':product_obj,
+               }
     return render(request, 'auction/productView.html',context)

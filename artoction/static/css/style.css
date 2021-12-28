@@ -421,6 +421,10 @@ nav{
     text-align: center;
     padding-bottom: 1rem;
 }
+
+.proddes p{
+    width: 50rem;
+}
   
 
 /* ************************ account ******************************** */  
