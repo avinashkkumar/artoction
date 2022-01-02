@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="account">
+    <div class="profile">
+        <div class="prof">
+            <img src="https://picsum.photos/150/150" alt="">
+        </div>
+        <div class="profd">
+            <ul>
+                <li>{% pro name %}</li>
+                <li>no of product listed : {% prodNo %}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="prodcont">
+        <!-- start for loop here for listing of sold products -->
+        <div class="prodlist">
+            <div class="listimg">
+                <img src="https://picsum.photos/180/180" alt="">
+            </div>
+            <div class="listdetail">
+                <ul>
+                    <li>
+                        <h2>{% title %}</h2>
+                    </li>
+                    <li>Sold Price : {% soldPrice %}</li>
+                    <li>Sold to : {% receviedUserName %}</li>
+                    <li>Product category : {% productCategory &}</li>
+                </ul>
+            </div>
+        </div>
+        <!-- end of for loop -->
+        <div class="prodlist">
+            <div class="listimg">
+                <img src="https://picsum.photos/180/180" alt="">
+            </div>
+            <div class="listdetail">
+                <ul>
+                    <li>
+                        <h2>{% title %}</h2>
+                    </li>
+                    <li>Sold Price : {% soldPrice %}</li>
+                    <li>Sold to : {% receviedUserName %}</li>
+                    <li>Product category : {% productCategory &}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="prodlist">
+            <div class="listimg">
+                <img src="https://picsum.photos/180/180" alt="">
+            </div>
+            <div class="listdetail">
+                <ul>
+                    <li>
+                        <h2>{% title %}</h2>
+                    </li>
+                    <li>Sold Price : {% soldPrice %}</li>
+                    <li>Sold to : {% receviedUserName %}</li>
+                    <li>Product category : {% productCategory &}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,4 +1,4 @@
-.about-us-main{
+.main{
     padding: 2rem;
     background-color: #d3b5e5;
 }
@@ -76,17 +76,6 @@
     padding: 1rem;
     border-radius: 1rem;
 }
-  
-  /*.diff1:hover {
-    -ms-transform: scale(1.3); 
-    -webkit-transform: scale(1.3); 
-    transform: scale(1.3);
-  }
-  .diff2:hover {
-    -ms-transform: scale(1.3); 
-    -webkit-transform: scale(1.3); 
-    transform: scale(1.3);
-  }*/
 
   .title{
     letter-spacing: 0.3rem;
