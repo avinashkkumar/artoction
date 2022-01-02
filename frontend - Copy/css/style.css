@@ -1,0 +1,1041 @@
+@font-face{
+    font-family: cascadia;
+    src: url('./WorkSans.ttf');
+    font-weight: 400;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0px;
+    box-sizing: border-box;
+    font-family: cascadia;
+}
+
+.ph{
+    margin-top: 1rem;
+    font-size: 2.5rem;
+}
+
+/* ************************* navigation ************************ */
+nav{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    height: 6vh;
+    align-items: center;
+    background-color: blueviolet;
+    color: #ffffff;
+}
+
+.link a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.logo{
+    font-size: 1.4rem;
+    letter-spacing: 10px;
+    font-weight: 900;
+}
+
+.links{
+    list-style: none;
+    display: flex;
+    width: 400px;
+    justify-content: space-around;
+    font-size: 1.4rem;
+}
+
+.links li{
+    border-bottom: 3px solid blueviolet;
+}
+
+.links li:hover{
+    border-bottom: 3px solid white;
+}
+
+.search form{
+    display: flex;
+}
+
+.search form input{
+    width: 15rem;
+    padding: 0.2rem;
+    border-top-left-radius: 0.2rem;
+    border-bottom-left-radius: 0.2rem;
+}
+
+.search form button{
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+    border-top-right-radius: 0.2rem;
+    border-bottom-right-radius: 0.2rem;
+    background-color: #50bfff;
+    width: 3.1rem;
+    height: 3.5vh;
+}
+
+
+
+.burger div {
+    width: 1.5rem;
+    height: 0.2rem;
+    background-color: #ffffff;
+    margin: 5px;
+    transition: all 0.3s ease-in-out;
+}
+.burger{
+    display: none;
+}
+
+/* *********************** responsive navigation ****************** */
+@media screen and (max-width: 880px) {
+    .links{
+        width: 300px;
+        font-size: 1.2rem;
+    }
+    
+    .search form button {
+        width: 2.5rem;
+    }
+
+    .search form input{
+        width: 10rem;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    body{
+        overflow-x: hidden;
+    }
+    .logo{
+        letter-spacing: 5px;
+    }
+    .link{
+        color: black;
+    }
+    .links{
+        position: absolute;
+        right: 0px;
+        height: 94vh;
+        top: 6vh;
+        display: flex;
+        flex-direction: column-reverse;
+        background-color: #50bfff;
+        align-items: center;
+        width: 60%;
+        transform: translate(100%);
+        transition: transform 0.4s ease-in-out;
+    }
+
+    .links li{
+        opacity: 0;
+    }
+    .burger{
+        display: block;
+    }
+}
+
+@media screen and (max-width:550px) {
+    .links{
+        width: 80%;
+    }    
+}
+
+@media screen and (max-width: 450px) {
+    .search form input{
+        width: 8rem;
+    }
+    .search form button{
+        width: 2.2rem;
+    }
+    .links{
+        width: 100%;
+    }
+}
+
+
+/* ************ css for javascript toggle and animation ************ */
+.navActive{
+    transform: translate(0px);
+}
+
+@keyframes navFade{
+    from{
+        opacity: 0;
+        transform: translate(50px);
+    }
+    to{
+        opacity: 1;
+        transform: translate(0px);
+    }
+}
+
+.toggle .line1{
+    transform: rotate( -45deg) translate(-3.5px , 2px);
+    /* background-color: red; */
+}
+.toggle .line2{
+    display: none;
+}
+.toggle .line3{
+    transform: rotate( 45deg ) translate(-3.5px, -2px);
+    /* background-color: red; */
+}
+
+
+/* ************************ hero ******************************** */
+.hero{
+    margin: 1rem;
+    border-radius: 0.5rem;
+    /* border: 2px solid black; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.heroimg{
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+.herot{
+    width: 60%;
+    /* border: 2px solid black; */
+    margin: 00.5rem;
+    border-radius: 0.5rem;
+}
+.herose{
+    background-color: #50bfff;
+    width: 35%;
+    border-radius: 0.5rem;
+    margin: 00.5rem;
+}
+.heroseli{
+    background-color: #ffffff;
+    border-radius: 00.5rem;
+    margin: 00.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.hpara{
+    margin: 0.5rem;
+}
+.hpara a{
+    background-color: rgb(194, 250, 250);
+    text-decoration: none;
+    color: #000000;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 00.2rem;
+    padding-bottom: 00.2rem;
+    border: 2px solid black;
+    border-radius: 0.4rem;
+}
+.hpara p{
+    padding-bottom: 00.4rem;
+}
+
+
+/* ************************ testimonial ******************************** */
+
+.test{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    padding: 3rem;
+    background-color: rgb(255, 102, 255);
+    border-radius: 0.5rem;
+}
+
+.th{
+    text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.tlci{
+    width: 10rem;
+    background-color: #c8eaff;
+    border-radius: 50%;
+}
+
+.tlist{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.tlc{
+    width: 26rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tlcd{
+    text-align: center;  
+    padding-top: 1rem;  
+}
+
+/* ************************ product page ******************************** */
+.prod{
+    display: flex;
+}
+.prodtir{
+    padding: 1rem;
+    margin: auto;
+}
+
+.prodt{
+    margin: 0px;
+}
+
+.pcrp{
+    padding: 2rem;
+}
+
+.pcrp ul{
+    list-style: none;
+    padding-bottom: 2rem;
+}
+
+.pcrp h3{
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.pcrp form input{
+    border: 1px solid black;
+    padding: 00.2rem;
+}
+
+.pcrp form button{
+    padding: 0.2rem;
+    margin: 0.4rem;
+    width: 10rem;
+    border-radius: 00.5rem;
+}
+.carousel-container {
+    border-radius: 0.8rem;
+    overflow: hidden;
+    max-width: 50rem;
+    position: relative;
+    box-shadow: 0 0 30px -20px #223344;
+    z-index: 0;
+    margin: 1rem;
+  }
+
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+  }
+  .mySlides img {
+    display: block;
+    width: 100%;
+  }
+  
+  /* Next & previous buttons */
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: auto;  
+    padding: 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    border-radius: 0 8px 8px 0;
+    background: rgba(173, 216, 230, 0.1);
+    user-select: none;
+  }
+  .next {
+    right: 0;
+    border-radius: 8px 0 0 8px;
+  }
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(173, 216, 230, 0.3);
+  }
+  
+  /* Number text (1/3 etc) */
+  
+  .dots-container {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%);
+  }
+  
+  /* The dots/bullets/indicators */
+  .dots {
+    cursor: pointer;
+    height: 14px;
+    width: 14px;
+    margin: 0 4px;
+    background-color: rgba(173, 216, 230, 0.2);
+    backdrop-filter: blur(2px);
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+  }
+  .active,
+  .dots:hover {
+    background-color: rgba(173, 216, 230, 0.8);
+  }
+  
+  /* transition animation */
+  .animate {
+    -webkit-animation-name: animate;
+    -webkit-animation-duration: 1s;
+    animation-name: animate;
+    animation-duration: 2s;
+  }
+  
+  @keyframes animate {
+    from {
+      transform: scale(1.1) rotateY(10deg);
+    }
+    to {
+      transform: scale(1) rotateY(0deg);
+    }
+  }
+
+
+
+  /* notes from owner */
+
+.proddes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 5rem;
+    padding-top:2rem ;
+}
+
+.proddes h2{
+    width: 30rem;
+    text-align: center;
+    padding-bottom: 1rem;
+}
+  
+
+/* ************************ account ******************************** */  
+.account{
+    min-height: 30rem;
+}
+.profile{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #c8eaff;
+
+}
+.prof img{
+    border-radius: 50%;
+    padding: 0.4rem;
+}
+.prof{
+    padding-left: 15rem;
+}
+.profd{
+    padding-right: 15rem;
+    align-items: center;
+    align-content: center;
+    margin: auto;
+}
+.profd ul{
+    list-style-type: none;
+
+}
+
+.profd ul li{
+    padding: 0.4rem;
+}
+
+.profd ul li a{
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    border-radius: 00.4rem;
+    background-color: #ebebeb;
+    padding: 00.2rem;
+}
+.prodlist{
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    width: 60rem;
+    border: 2px solid black;
+    margin-top: 2rem;
+    border-radius: 1rem;
+}
+.listimg{
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+}
+.listdetail{
+    align-items: center;
+    align-content: center;
+    margin: auto;
+    margin-left: 0px;
+}
+
+.listdetail ul{
+    list-style-type: none;
+}
+
+.prodcont{
+    padding-bottom: 2rem;
+}
+
+/* *************** user registration and login ********************** */
+
+.register{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    margin: auto;
+    height: 94vh;
+}
+.registerContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.registerForm{
+    display: flex;
+    flex-direction: column;
+    margin-top: 12rem;
+    width: 25rem;
+    background-color: beige;
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 0.2rem 0.2rem 0.5rem #223344;
+
+}
+
+.registerForm input{
+    padding: 0.5rem;
+    margin: 0.5rem;
+    border-radius: 0.6rem;
+    border: 2px solid black;
+}
+
+label{
+    padding: 0.5rem;
+    margin: 0.5rem;
+    padding-bottom:0px;
+    padding-top:0px;
+    margin-bottom:0px;
+}
+
+#image{
+    margin-top: 0px;
+}
+
+.registerForm button{
+    padding: 00.5rem;
+    margin: 00.5rem;
+    background-color: rgb(187, 255, 198);
+    font-size: 1rem;
+    border: 2px solid black;
+    border-radius: 00.5rem;
+}
+.rlopt{
+    padding-top: 2rem;
+}
+
+.rlopt ul{
+    display: flex;
+    flex-direction: row;
+    width: 20rem;
+    justify-content: space-around;
+    list-style: none;
+}
+
+.rlopt ul li{
+    border: 2px solid black;
+    border-radius: 00.4rem;
+    padding: 0.2rem;
+}
+
+.rlopt ul li a {
+    text-decoration: none;
+    color: black;
+    padding: 1rem;
+}
+
+.ractive{
+    background-color: rgb(255, 210, 221);
+}
+
+/* ******************** Auction Listing **************************** */
+.aucList{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
+
+.aucList h1{
+    text-align: center;
+}
+
+.listh{
+    margin-top: 2rem;
+}
+
+.aucList div h2{
+    text-align: center;
+}
+
+.oglist{
+    display: flex;
+    flex-direction: row;
+}
+
+.ogplist{
+    /* border: 2px solid black; */
+    background-color: #ebebeb;
+    padding: 0.8rem;
+    margin: 0em;
+    margin: 2rem;
+    border-radius: 00.4rem;
+}
+
+.onpldes{
+    padding-left: 0.4rem;
+}
+.onpldes li{
+    list-style: none;
+    margin-top: 0.4rem;
+}
+
+.onpldes ul li a{
+    text-decoration: dashed;
+    color: black;
+    width: 12rem;
+    text-align: center;
+}
+
+.bid{
+    border: 2px solid black;
+    border-radius: 0.2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.more{
+    /* border: 2px solid black; */
+    padding: 0.8rem;
+    margin: 0em;
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #ebebeb;
+    border-radius: 00.4rem;
+}
+
+.more h3{
+    border: 2px solid black;
+    padding: 1rem;
+    padding-top: 00.4rem;
+    padding-bottom: 00.4rem;
+    border-radius: 00.4rem;
+}
+
+.more h3 a{
+    text-decoration: none;
+    color: black;
+}
+
+/* ********************** ongoing complete listing **************************** */
+
+.ongoinghead{
+    margin-top: 1.8rem;
+}
+
+.ongoingcontext{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.prodllist{
+    margin: 2.5rem;
+    background-color: #c6eaff;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 60rem;
+    border-radius: 0.5rem;
+}
+
+.product{
+    margin: 1rem;
+}
+
+.productdes ul{
+    list-style: none;
+}
+
+.product{
+    /* border: 2px solid black; */
+    background-color: white;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.productdes ul li {
+    text-align: center;
+}
+
+.productdes ul li a{
+    text-decoration: none;
+    color: black;
+    border-radius: 0.4rem;
+}
+
+.productbid{
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+    margin: 0.4rem;
+}
+
+.productbid a{
+    border: 2px solid rgb(59, 58, 58);
+    padding: 0.6rem;
+    padding-top: 0.2rem ;
+    padding-bottom: 0.2rem ;
+}
+
+/* ************************ footer ******************************** */
+
+footer{
+    background-color: pink;
+    padding-left: 10%;
+    padding-right: 10%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.sitemap li{
+    list-style: disc;
+}
+
+.fs1{
+    display: flex ;
+    flex-wrap: wrap;
+}
+
+.map{
+    width: 12rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.social{
+    width: 12rem;
+    padding-left: 2rem;
+    padding-right: 1rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+
+.sitemap li{
+    list-style: none;
+    margin-left: 1rem;
+}
+
+.socialink li{
+    margin-left: 1rem;
+    list-style: none;
+}
+
+.fs2{
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+
+.feedback{
+    display: flex;
+    flex-direction: column;
+}
+
+.feedback input , textarea{
+    border: 1px solid black;
+    width: 18rem;
+    margin-bottom: 0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+    border-radius: 0.2rem;
+    box-shadow: none;
+    background-color: white;
+}
+
+.feedback textarea{
+    height: 8rem;
+    resize: none;
+}
+
+.feedback label{
+    padding-left: 1rem;
+    color: #ffffff;
+    font-size: 0.8rem;
+    margin-bottom: 0.1rem;
+}
+
+@media screen and (max-width: 800px) {
+    footer{
+        justify-content: space-around;
+    }    
+}
+@media screen and (max-width: 440px) {
+    .fs1{
+        justify-content: space-around;
+    } 
+    .map{
+        padding: 0px;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }   
+    .social{
+        padding: 0px;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }   
+}
+
+
+/*--------------------------------HOW IT WORKS------------------------------------*/
+.main{ 
+    padding: 2rem;
+    background-color: #d3b5e5;
+}
+.title{
+    letter-spacing: 0.3rem;
+    text-align: center;
+    font-size: 3rem;
+}
+.pt1{
+    display: flex;
+    padding: 1rem;
+    background-color: #ffd4db;
+    margin: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 0 0.4rem 0  rgb(141, 141, 141);
+}
+.pt2{
+    display: flex;
+    flex-direction: row-reverse;
+    background-color: #ffaebc;
+    padding: 1rem;
+    margin: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 0 0.4rem 0  rgb(141, 141, 141);
+}
+
+.text{
+    width: 65%;
+    margin: 1.5rem;
+    font-size: 1.4rem;
+}
+.img{
+    width: 35%;
+    margin: 1.5rem;
+    border-radius: 1rem;
+}
+.img img{
+    width: 100%;
+}
+
+/* ----------------------FAQ------------------------- */
+::-webkit-details-marker{
+    display: none;
+}
+summary{
+    cursor: pointer;
+    outline: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.pt3{
+    display: flex;
+    padding: 1rem;
+    background-color: #ffd4db;
+    margin: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 0 0.4rem 0  rgb(141, 141, 141);
+}
+.pt4{
+    display: flex;
+    background-color: #ffaebc;
+    padding: 1rem;
+    margin: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 0 0.4rem 0  rgb(141, 141, 141);
+}
+/* --------------------aboutus--------------------------------------------------- */
+.aboutus{
+    display: flex;
+    padding: 2rem;
+}
+
+.about-img{
+    width: 40%;
+}
+
+.about-img img{
+    margin: 2rem;
+    width: 100%;
+}
+
+.about-text{
+    width: 60%;
+    padding: 2rem;
+    font-size: medium;
+    border-radius: 3rem;
+}
+
+.about-text h2{
+    font-size: 2rem;
+    text-align: center;
+    font-weight: normal;
+}
+
+.about-text p{
+    font-size: 1.5rem;
+}
+
+.brand-diff{
+    justify-content: center;
+    display: flex;
+    padding: 1rem;
+}
+
+.diff1{
+    margin: 2rem;
+    cursor: pointer;
+    border-radius: 1rem;
+    background-color: #ffd4db;
+    transition: transform .2s;
+    padding: 1rem;
+    width: 100%;
+    box-shadow: 0 0 0.4rem 0  rgb(141, 141, 141);
+}
+.diff2{
+    margin: 2rem;
+    cursor: pointer;
+    border-radius: 1rem;
+    background-color: #ffaebc;
+    transition: transform .2s;
+    padding: 1rem;
+    width: 100%;
+    box-shadow: 0 0 0.4rem 0  rgb(141, 141, 141);
+}
+
+.diff-head{
+    font-size: 1.5rem;
+    padding: 1rem;
+}
+.container h2{
+    text-align: center;
+    font-weight: normal;
+}
+.container{
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+/* ---------------------------------support----------------------------------- */
+.main h1{
+    text-align: center;
+    font-size: medium;
+    letter-spacing: 0.3rem;
+    font-size: 3rem;
+}
+
+.contact-form h2{
+    text-align: right;
+    color: #ff6961;
+}
+
+#input{
+    font-size: medium;
+    border: 0;
+    width: 100%;
+    margin: 0.5rem;
+    padding: 1rem;
+    outline: none;
+    border-radius: 0.5rem;
+    background-color: #ffd4db;
+}
+label{
+    font-size: large;
+    margin: 0.5rem;
+    padding: 1rem;
+}
+#subject{
+    font-size: large;
+    border-radius: 0.5rem;
+    width: 100%;
+    margin: 0.5rem;
+    padding: 1rem;
+    outline: none;
+    border: 0;
+    background-color: #ffd4db;
+}
+.form{
+    width: 40%;
+    padding: 3rem;
+    padding-right: 6rem;
+    background-color: #ffaebc;
+    border-radius: 1rem;
+    box-shadow: 0 0 0.4rem 0  rgb(141, 141, 141);
+    margin-left: 25%;
+}
+.buttons{
+    justify-content: center;
+    display: flex;
+    margin: 2rem;
+}
+.submit{
+    border: 0;
+    outline: none;
+    background-color: #77dd77;
+    width: 30%;
+    font-size: large;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    margin: 1rem;
+    padding: 1rem;
+}
+.cancel{
+    font-size: large;
+    border-radius: 0.5rem;
+    border: 0;
+    outline: none;
+    width: 30%;
+    cursor: pointer;
+    background-color: #ff6961;
+    margin: 1rem;
+    padding: 1rem;
+}
