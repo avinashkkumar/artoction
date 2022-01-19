@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="register">
+    <form action="" class="registerForm" method="post"> {% csrf_token %}
+        <input type="text" name="username" id="username" placeholder="Username">
+        <input type="email" name="email" id="email" placeholder="Email">
+        <input type="text" name="password1" id="password1" placeholder="Password">
+        <input type="text" name="passowrd2" id="passowrd2" placeholder="Confirm Password">
+        <label for="image"> Upload profile picture</label>
+        <input type="file" name="profile"  id="image">
+        <button type="submit">Register</button>
+    </form>
+    {{ from}}
+    <div class="rlopt">
+        <ul>
+            <li class="ractive"><a href="login">Login</a></li>
+            <li><a href="register">Register</a></li>
+        </ul>
+    </div>
+</div>
+{% endblock content %}

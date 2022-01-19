@@ -26,12 +26,15 @@ SECRET_KEY = 'django-insecure-%!e0xc0v(2b(4yr%0$@pne!(pvw67zau3#3*yiv(=ve0wjoop=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+AUTH_USER_MODEL = 'account.Account'
+
 ALLOWED_HOSTS = []
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'account',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,7 +43,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'auction',
-    'user',
 ]
 
 MIDDLEWARE = [
@@ -54,6 +56,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'artoction.urls'
+
+
 
 TEMPLATES = [
     {
@@ -75,7 +79,7 @@ WSGI_APPLICATION = 'artoction.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+# https://docs.djangoproject.com/en/3.2/rehttpssettings/#databases
 
 DATABASES = {
     'default': {

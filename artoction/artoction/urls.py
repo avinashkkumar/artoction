@@ -31,22 +31,22 @@ from auction.views import (
     product,
 )
 
-from user.views import (
+from account.views import (
     account,
-    login,
-    register,
+    login_view,
+    register_view,
 )
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',landing_view),
+    path('',landing_view, name="home"),
     path('auction', auction_land, name='auctions'),
     path('ongoing', ongoing, name="ongoing"),
     path('upcoming',upcoming , name="upcoming"),
     path('completed', completed, name="completed"),
     path('account', account, name="account"),
-    path('login', login, name="login"),
-    path('register', register, name="register"),
+    path('login', login_view, name="login"),
+    path('register', register_view, name="register"),
     path('product/<int:id>', product, name="product"),
 
 
