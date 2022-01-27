@@ -21,7 +21,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-%!e0xc0v(2b(4yr%0$@pne!(pvw67zau3#3*yiv(=ve0wjoop='
+# Generate secret key with 
+# python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
+SECRET_KEY = os.environ.get('PROJECT_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -136,4 +138,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR , 'static')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# email configration
+EMAIL_USE_TLS = os.environ.get('EMAIL_TLS')
+EMAIL_HOST = os.environ.get('EMAIL_HOST')
+EMAIL_HOST_USER = os.environ.get('EMAIL_ORIGIN')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_SECRET_KEY')
+EMAIL_PORT = os.environ.get('EMAIL_PORT')
+
  

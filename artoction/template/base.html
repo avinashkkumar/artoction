@@ -29,7 +29,13 @@
             <ul class="links" id="links">
                 <li class="link1" id="link1"> <a href=" /">Home</a></li>
                 <li class="link3" id="link3"> <a href="auction">Auctions</a></li>
-                <li class="link2" id="link2"> <a href="account">Account</a></li>
+                {% if request.user.is_authenticated %}
+                <li class="link2" id="link2"> <a href="account">Account</a></li>                
+                <li class="link2" id="link2"> <a href="logout">Logout</a></li>                
+                {% else %}
+                <li class="link2" id="link2"> <a href="login">Login</a></li>                
+                {% endif %}
+
             </ul>
         </div>
         <div class="burger" id="burger">

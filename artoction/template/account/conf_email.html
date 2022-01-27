@@ -1,0 +1,11 @@
+{% autoescape off %}
+
+{{ name }}, Welcome to the artoction,
+Your account have been created, but is not active untill you confirm your email address. 
+Click on the link below in order to activate your email
+conformation link : http://{{ domain }}{% url 'activate' uidb64=uid token=token %}
+
+--regards
+    artoction team
+
+{% endautoescape %}
