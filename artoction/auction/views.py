@@ -55,3 +55,8 @@ def product(request,id = None, *args, **kwargs):
                'this':product_obj,
                }
     return render(request, 'auction/productView.html',context)
+
+
+def productCreate(request, *args, **kwargs):
+    context = {}
+    return render(request, 'auction/addProduct.html',context)

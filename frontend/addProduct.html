@@ -1,0 +1,48 @@
+<div class="content" id="content">
+    <div class="uploadForm">
+        <form action="" method="post" enctype="multipart/form-data" {% csrf_token %}>
+            
+            <div class="fg">
+            <label for="Title">Name of your product</label>
+            <input type="text" name="Title">
+            </div>
+            
+            <div class="fg">    
+            <label for="description">Write a short description about the Product</label>
+            <textarea name="description" id="description"></textarea>
+            </div>
+
+            <div class="fg">
+            <label for="basePrice">Base Price</label>
+            <input type="number" name="basePrice" id="">
+            </div>
+
+            <div class="fg">
+            <label for="image1">Upload product Image</label>
+            <input type="file" name="image1" id="" accept="image/*">
+            </div>
+
+            <div class="fg">
+            <label for="image2">Upload product Image</label>
+            <input type="file" name="image2" id="" accept="image/*">
+            </div>
+
+            <div class="fg">
+            <label for="image3">Upload product Image</label>
+            <input type="file" name="image3" id="" accept="image/*">
+            </div>
+
+            <div class="fg">
+            <label for="image4">Upload product Image</label>
+            <input type="file" name="image4" id="" accept="image/*">
+            </div>
+
+            <div class="fg">
+            <label for="image5">Upload product Image</label>
+            <input type="file" name="image5" id="" accept="image/*">
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>

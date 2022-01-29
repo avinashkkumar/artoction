@@ -29,6 +29,7 @@ from auction.views import (
     upcoming,
     completed,
     product,
+    productCreate,
 )
 
 from account.views import (
@@ -50,8 +51,9 @@ urlpatterns = [
     path('login', login_view, name="login"),
     path('logout', logout_view, name="logout"),
     path('register', register_view, name="register"),
+    path('create',productCreate, name="create"),
     path('product/<int:id>', product, name="product"),
-    path('activate/<uidb64>/<token>', activate , name="activate" )
+    path('activate/<uidb64>/<token>', activate , name="activate")
 
 
 

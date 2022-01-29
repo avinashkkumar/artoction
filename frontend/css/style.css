@@ -421,7 +421,73 @@ nav{
     text-align: center;
     padding-bottom: 1rem;
 }
-  
+
+
+/* ****************** Product Upload Page ************************** */  
+
+.uploadForm{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.fg{
+    padding-top: 1.5rem;
+    width: 40rem;
+}
+
+.uploadForm form{
+    background-color: #ecececd2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50rem;
+    margin: auto;
+    border-radius: 0.5rem;
+}
+
+.uploadForm form textarea{
+    resize: none;
+    align-self: center;
+    width: 30rem;
+    height: 8rem;
+}
+
+.uploadForm form label{
+    font-size: 1.25rem;
+}
+
+.uploadForm form input[name="Title"]{
+    width: 30rem;
+    padding: 0.4rem;
+}
+
+.uploadForm form input[type="file"]{
+    margin-left: 1rem;
+}
+
+.uploadForm form input[type="file"]::file-selector-button{
+    background-color: #fff;
+    border: none;
+    border: 1px solid black;
+    border-radius: 0.2rem;
+}
+
+.uploadForm form input[type="number"]{
+    padding: 0.4rem;
+}
+
+.uploadForm form button[type="submit"]{
+    background-color: #50bfff;
+    width: 15rem;
+    align-self: center;
+    padding: 0.29rem;
+    border-radius: 0.2rem;
+    margin: 0.5rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    font-size: 1rem;
+}
 
 /* ************************ account ******************************** */  
 .account{
