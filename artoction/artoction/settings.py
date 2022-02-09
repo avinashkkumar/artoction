@@ -83,10 +83,26 @@ WSGI_APPLICATION = 'artoction.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/rehttpssettings/#databases
 
+# default database
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR , 'database.sqlite3'),
+#     }
+# }
+
+# postgresql database
+DB_NAME = os.environ.get("DAB_NAME")
+DB_USER = os.environ.get("DAB_USER")
+DB_PASSWORD = os.environ.get("DAB_PASSWORD")
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR , 'database.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': DB_NAME,
+        'USER': DB_USER,
+        'PASSWORD': DB_PASSWORD,
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 

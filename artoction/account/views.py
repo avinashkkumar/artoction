@@ -3,7 +3,7 @@ from django.shortcuts import render , HttpResponse, redirect
 from django.contrib.auth import authenticate, login, logout
 from .models import Account
 
-    # django import for email and tokens
+# django import for email and tokens
 from django.core.mail import send_mail
 from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
@@ -14,8 +14,13 @@ from django.core.mail import EmailMessage,send_mail
 
 # app imports 
 from .forms import RegistrationForm
-    # token generater for mail 
+
+
+
+# token generater for mail 
 from .tokens import generate_token
+
+
 
 # python imports
 import os

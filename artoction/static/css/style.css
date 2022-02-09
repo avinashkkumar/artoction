@@ -44,7 +44,7 @@ nav{
 .links{
     list-style: none;
     display: flex;
-    width: 400px;
+    width: 30rem;
     justify-content: space-around;
     font-size: 1.4rem;
 }
