@@ -1,0 +1,49 @@
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/Adminstyle.css' %}">
+{% endblock head %}
+
+{% block title %}
+Artoction Admin | Ongoing Auctions
+{% endblock title %}
+
+<div class="product-list">
+    <div class="list-links">
+        <a href="">Upcoming Auctions</a>
+        <a href="">Ongoing Auctions</a>
+        <a href="" class="active">Completed Auctions</a>
+    </div>
+    <div class="list-table">
+        <table class="ca-product-list">
+            <colgroup>
+                <col class="ca-product-no">
+                <col class="ca-product-name">
+                <col class="ca-product-upload-date">
+                <col class="ca-bidding-end">
+                <col class="ca-highest-bidder">
+            </colgroup>
+            <thead>
+                <th>P.No</th>
+                <th>Product Name</th>
+                <th>Date of product upload</th>
+                <th>End of bidding</th>
+                <th>Auction Winner</th>
+            </thead>
+            <tbody>
+                <!-- loop here  -->
+                <tr>
+                    <td>1</td>
+                    <td>product Name is product</td>
+                    <td>september01,2000</td>
+                    <td>september16,2000</td>
+                    <td class="ca-winner-cell">User@1234</td>
+                </tr>
+
+                <!-- loop ends here -->
+                
+
+            </tbody>
+        </table>
+    </div>
+</div>

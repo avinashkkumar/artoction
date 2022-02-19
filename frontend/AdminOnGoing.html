@@ -1,0 +1,52 @@
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/Adminstyle.css' %}">
+{% endblock head %}
+
+{% block title %}
+Artoction Admin | Ongoing Auctions
+{% endblock title %}
+
+<div class="product-list">
+    <div class="list-links">
+        <a href="">Upcoming Auctions</a>
+        <a href="" class="active">Ongoing Auctions</a>
+        <a href="">Completed Auctions</a>
+    </div>
+    <div class="list-table">
+        <table class="og-product-list">
+            <colgroup>
+                <col class="og-product-no">
+                <col class="og-product-name">
+                <col class="og-product-upload-date">
+                <col class="og-highest-bidder">
+                <col class="og-delete">
+            </colgroup>
+            <thead>
+                <th>P.No</th>
+                <th>Product Name</th>
+                <th>Date of product upload</th>
+                <th>Highest Bidder</th>
+                <th>Delete Product</th>
+            </thead>
+            <tbody>
+                <!-- loop here  -->
+                <tr>
+                    <td>1</td>
+                    <td>product Name is product</td>
+                    <td>march 16,2002</td>
+                    <td>User@1234</td>
+                    <td class="delete-cell">
+                        <a href="">
+                            <img src="./img/trash3.svg" alt="">
+                        </a>
+                    </td>
+                </tr>
+
+                <!-- loop ends here -->
+
+            </tbody>
+        </table>
+    </div>
+</div>
