@@ -1,0 +1,207 @@
+/* ***************************** HOME PAGE *************************************** */
+
+.admin-home{
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+}
+
+.admin-welcome{
+    text-align: center;
+}
+
+.admin-home-content{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 5rem;
+    padding-top: 3rem;
+}
+
+.card{
+    width: 23rem;
+    height: 25rem;
+    padding: 1rem;
+    border-radius: 0px 0px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #50bfff33;
+    border: 0.29rem solid #FFFFFF;
+    border-top: 0.29rem solid #8A2BE2;
+}
+
+.card:hover{
+    border: 0.29rem solid #8A2BE2;
+}
+
+.card p{
+    text-align: center;
+    font-size: 2rem;
+    width: 100%;
+}
+
+.svg img{
+    width: 6rem;
+    padding: 1rem;
+}
+
+.list{
+    filter: invert(55%) sepia(13%) saturate(2188%) hue-rotate(217deg) brightness(83%) contrast(83%);
+}
+
+.ban{
+    filter: invert(44%) sepia(8%) saturate(450%) hue-rotate(166deg) brightness(97%) contrast(86%);
+}
+
+.cycle{
+    filter: invert(58%) sepia(69%) saturate(3569%) hue-rotate(83deg) brightness(122%) contrast(100%);
+}
+
+/* ***************************** upcoming PRODUCT LIST PAGE *************************************** */
+.product-list{
+    min-height: 95vh;
+}
+
+
+.list-links{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 1rem;
+}
+
+.list-links a{
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: #000000;
+    border: 1px solid black;
+    padding: 0.2rem 1rem 0.2rem 1rem;
+    border-radius: 0.4rem;
+}
+
+.active{
+    background-color: #50bfff33;
+}
+
+.list-table{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+th{
+    text-align: left;
+}
+
+.ua-product-no{
+    width: 5rem;
+}
+
+.ua-product-name{
+    width: 28rem;
+}
+
+.product-upload-list{
+    width: 20rem;
+}
+
+.ua-delete{
+    width: 12rem;
+}
+
+
+.delete-cell{
+    display: flex;
+    justify-content: space-around;
+}
+
+.delete-cell a img{
+    filter: invert(40%) sepia(91%) saturate(3410%) hue-rotate(333deg) brightness(96%) contrast(115%);
+}
+
+.upcoming-product-list{
+    width: 65rem;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    
+}
+
+
+/* ***************************** ongoing PRODUCT LIST PAGE *************************************** */
+
+.og-product-list{
+    font-size:1.2rem ;
+    width: 75rem;
+    padding: 1rem 0rem 2.9rem 0rem;
+}
+
+.og-product-no{
+    width: 5rem;
+}
+
+.og-product-name{
+    width: 30rem;
+}
+
+
+.og-product-upload-date{
+    width: 17rem;
+}
+
+.og-product-bidder{
+    width: 12.8rem;
+}
+
+.og-delete{
+    width: 10.2rem;
+}
+
+
+/* ***************************** COMPLETED AUCTION PRODUCT LIST PAGE *************************************** */
+
+.ca-product-list{
+    width: 75rem;
+    font-size: 1.2rem;
+    padding: 1rem 0rem 2.9rem 0rem;
+}
+
+.ca-product-no{
+    width: 5rem;
+}
+
+.ca-product-name{
+    width: 28rem;
+}
+
+.ca-product-upload-date{
+    width: 15.8rem;
+}
+
+.ca-product-end{
+    width: 15.8rem;
+
+}
+
+.ca-highest-bidder{
+    width: 10.4rem;
+}
+
+.ca-winner-cell{
+    font-weight: 900;
+    color: #08af02;
+
+}
+
+
+/* *****************************  PRODUCT LIST PAGE all *************************************** */
+
+td,th{
+    padding: 0.5rem;
+}
+
+th{
+    border-bottom: 1px solid black;
+}

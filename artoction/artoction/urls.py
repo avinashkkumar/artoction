@@ -19,8 +19,17 @@ from django.conf import settings
 from django.conf.urls.static import static
 from artoction.settings import MEDIA_ROOT
 
+from artadmin.views import (
+    adminHome,
+    adminUpComingAuction,
+    adminOngoingAuction,
+    adminCompletedAuction,
+)
+
+
 from home.views import (
     landing_view,
+    productSearch,
     )
 
 from auction.views import (
@@ -30,7 +39,6 @@ from auction.views import (
     completed,
     product,
     productCreate,
-    productSearch,
 )
 
 from account.views import (
@@ -43,18 +51,28 @@ from account.views import (
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',landing_view, name="home"),
+    path('artadmin/', adminHome, name="adminHome"),
+    path('adminupcoming/', adminUpComingAuction, name="adminUpcoming"),
+    path('adminongoing/', adminOngoingAuction, name="adminOngoing"),
+    path('admincompleted/', adminCompletedAuction, name="adminCompleted"),
+
+
+    path('', landing_view, name="home"),
+    path('search', productSearch, name="search"),
+
+
     path('auction', auction_land, name='auctions'),
     path('ongoing', ongoing, name="ongoing"),
-    path('upcoming',upcoming , name="upcoming"),
+    path('upcoming', upcoming , name="upcoming"),
     path('completed', completed, name="completed"),
-    path('account', account, name="account"),
+    path('create', productCreate, name="create"),
+    path('product/<int:id>', product, name="product"),
+
+
+    path('account/<int:id>', account, name="account"),
     path('login', login_view, name="login"),
     path('logout', logout_view, name="logout"),
     path('register', register_view, name="register"),
-    path('create',productCreate, name="create"),
-    path('product/<int:id>', product, name="product"),
-    path('search',productSearch,name="search"),
     path('activate/<uidb64>/<token>', activate , name="activate")
 
 

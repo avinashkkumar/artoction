@@ -19,6 +19,8 @@ class Product(models.Model):
     listedBy            = models.CharField(max_length=20)
     description         = models.TextField()
     category            = models.CharField(max_length=50, null= True, blank=True)
+    upload_date         = models.DateField(auto_now=False, auto_now_add=True)
+    last_bid_date       = models.DateField(auto_now=True, auto_now_add=False)
     image1              = models.ImageField(upload_to=uploadImageHandler, max_length=None)
     image2              = models.ImageField(upload_to=uploadImageHandler, max_length=None)
     image3              = models.ImageField(upload_to=uploadImageHandler, max_length=None)

@@ -101,8 +101,3 @@ def productCreate(request, *args, **kwargs):
 
 
 
-def productSearch(request, *args, **kwargs):
-    if request.method == "GET":
-        product_no = request.GET['id']
-        print(request.GET['id'])
-        return redirect(f"product/{product_no}")

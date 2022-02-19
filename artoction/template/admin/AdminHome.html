@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/Adminstyle.css' %}">
+{% endblock head %}
+
+{% block title %}
+Artoction Admin
+{% endblock title %}
+
+{% block content %}
+
+<div class="admin-home">
+    <h1 class="admin-welcome"> Artoction Administration</h1>
+    <div class="admin-home-content">
+        <div class="card">
+            <div class="svg">
+                <img class="list" src="./img/list-columns-reverse.svg" alt="">
+            </div>
+            <p class="">Product List</p>
+        </div>
+        <div class="card">
+            <div class="svg">
+                <img class="ban" src="./img/person-lines-fill.svg" alt="">
+            </div>
+            <p class="">User List</p>
+        </div>
+        <div class="card">
+            <div class="svg">
+                <img class="cycle" src="./img/arrow-repeat.svg" alt="">
+            </div>
+            <p class="">Cycle product</p>
+        </div>
+    </div>
+</div>
+{% endblock content %}

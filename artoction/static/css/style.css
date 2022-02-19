@@ -33,12 +33,15 @@ nav{
     color: #ffffff;
 }
 
-.logo a{
+.logo{
     font-size: 1.4rem;
     letter-spacing: 10px;
     font-weight: 900;
+}
+
+.logo a{
+    color: #FFFFFF;
     text-decoration: none;
-    color: #ffffff;
 }
 
 .links{
@@ -427,14 +430,6 @@ nav{
 
 /* ****************** Product Upload Page ************************** */  
 
-.cpph{
-    width: 60rem;
-    text-align: center;
-    align-self: center;
-    margin-bottom: 1rem;
-    font-size: 2rem;
-}
-
 .uploadForm{
     display: flex;
     flex-direction: column;
@@ -444,6 +439,11 @@ nav{
 .fg{
     padding-top: 1.5rem;
     width: 40rem;
+}
+
+.cpph{
+    text-align: center;
+    padding: 0rem 0rem 1rem 0rem;
 }
 
 .uploadForm form{
