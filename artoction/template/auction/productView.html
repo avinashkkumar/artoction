@@ -10,21 +10,29 @@
                     <img src= "/static/{{ this.image1 }}"  alt="slide" />
                 </div>
 
+                {% if this.image2 %}
                 <div class="mySlides animate">
                     <img src= "/static/{{ this.image2 }}" alt="slide" />
                 </div>
+                {% endif %}
 
+                {% if this.image3 %}
                 <div class="mySlides animate">
                     <img src= "/static/{{ this.image3 }}" alt="slide" />
                 </div>
+                {% endif %}
 
+                {% if this.image4 %}
                 <div class="mySlides animate">
                     <img src= "/static/{{ this.image4 }}" alt="slide" />
                 </div>
+                {% endif %}
 
+                {% if this.image5 %}
                 <div class="mySlides animate">
                     <img src= "/static/{{ this.image5 }}" alt="slide" />
                 </div>
+                {% endif %}
                 <!-- for loop till here -->
 
                 <!-- Next and previous buttons -->
@@ -34,10 +42,18 @@
                 <!-- The dots/circles -->
                 <div class="dots-container">
                     <span class="dots" onclick="currentSlide(1)"></span>
+                    {% if this.image2 %}
                     <span class="dots" onclick="currentSlide(2)"></span>
+                    {% endif %}
+                    {% if this.image3 %}
                     <span class="dots" onclick="currentSlide(3)"></span>
+                    {% endif %}
+                    {% if this.image4 %}
                     <span class="dots" onclick="currentSlide(4)"></span>
+                    {% endif %}
+                    {% if this.image5 %}
                     <span class="dots" onclick="currentSlide(5)"></span>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -62,7 +78,7 @@
     </div>
     <div class="proddes">
         <h2>Notes from item owner </h2>
-        <p>{{ this.notesByLister }}</p>
+        <p>{{ this.description }}</p>
     </div>
 </div>
 

@@ -120,6 +120,7 @@ def activate(request, uidb64, token ):
         my_user = None
     if my_user is not None and generate_token.check_token(my_user, token):
         my_user.is_active = True
+        print(my_user.is_active)
         my_user.save()
     return redirect('home')
 

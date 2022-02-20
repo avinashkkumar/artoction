@@ -47,7 +47,7 @@ def completed(request, *args, **kwargs):
 def product(request,id = None, *args, **kwargs):
     product_obj = Product.objects.get(id=id)
     print(product_obj)
-
+    print("image5 name" , product_obj.image5)
     context = {'this':product_obj}
     return render(request, 'auction/productView.html',context)
 
