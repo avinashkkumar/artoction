@@ -32,6 +32,10 @@ AUTH_USER_MODEL = 'account.Account'
 
 ALLOWED_HOSTS = []
 
+PASSWORD_RESET_TIMEOUT = 43200
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 
 # Application definition
 

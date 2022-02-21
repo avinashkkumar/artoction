@@ -47,20 +47,25 @@ from account.views import (
     logout_view, 
     register_view,
     activate,
+    forgot_password,
+    password_reset_view,
 )
 
 urlpatterns = [
+    # django database admin 
     path('admin/', admin.site.urls),
+
+    # admin app
     path('artadmin/', adminHome, name="adminHome"),
     path('adminupcoming/', adminUpComingAuction, name="adminUpcoming"),
     path('adminongoing/', adminOngoingAuction, name="adminOngoing"),
     path('admincompleted/', adminCompletedAuction, name="adminCompleted"),
 
-
+    # home app
     path('', landing_view, name="home"),
     path('search', productSearch, name="search"),
 
-
+    # auction app
     path('auction', auction_land, name='auctions'),
     path('ongoing', ongoing, name="ongoing"),
     path('upcoming', upcoming , name="upcoming"),
@@ -68,12 +73,14 @@ urlpatterns = [
     path('create', productCreate, name="create"),
     path('product/<int:id>', product, name="product"),
 
-
+    # account app
     path('account/<int:id>', account, name="account"),
     path('login', login_view, name="login"),
     path('logout', logout_view, name="logout"),
     path('register', register_view, name="register"),
-    path('activate/<uidb64>/<token>', activate , name="activate")
+    path('forgot-password', forgot_password , name="forgotPassword"),
+    path('activate/<uidb64>/<token>', activate , name="activate"),
+    path('<uidb64>/<token>/reset-password/', password_reset_view, name="resetPassword"),
 
 
 
