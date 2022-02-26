@@ -5,124 +5,29 @@
     <h1 class="ongoinghead">Live Auctions</h1>
     <div class="prodllist">
         <!-- Start for loop here for the object list recieved  -->
-        <div class="product">
-            <div class="productimg">
-                <img src="https://picsum.photos/250/250" alt="">
+        {% for product in ongoing %}
+            <div class="product">
+                <div class="productimg">
+                    <img src="/static/{{ product.image1 }}" alt="">
+                </div>
+                <div class="productdes">
+                    <ul>
+                        <li>{{ product.name }}</li>
+                        <li>INR : {{ product.current_price }}</li>
+                        {% if not product.current_bidder %}
+                        <li>Highest bid : None</li>                        
+                        {% else %}
+                        <li>Highest bid : {{ product.current_bidder }}</li>                        
+                        {% endif %}
+                        <li class="productbid"><a href="{% url 'product' product.pk %}"> BID NOW</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="productdes">
-                <ul>
-                    <li>{{ title }}</li>
-                    <li>INR : {{ price }}</li>
-                    <li>Highest bid : {{ buyer }}</li>
-                    <li class="productbid"><a href="product"> BID NOW</a></li>
-                </ul>
-            </div>
-        </div>
+        {% endfor %}
+
+        
         <!-- product list for loop ends here -->
-        <div class="product">
-            <div class="productimg">
-                <img src="https://picsum.photos/250/250" alt="">
-            </div>
-            <div class="productdes">
-                <ul>
-                    <li>{{ title }}</li>
-                    <li>INR : {{ price }}</li>
-                    <li>Highest bid : {{ buyer }}</li>
-                    <li class="productbid"><a href="product"> BID NOW</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="product">
-            <div class="productimg">
-                <img src="https://picsum.photos/250/250" alt="">
-            </div>
-            <div class="productdes">
-                <ul>
-                    <li>{{ title }}</li>
-                    <li>INR : {{ price }}</li>
-                    <li>Highest bid : {{ buyer }}</li>
-                    <li class="productbid"><a href="product"> BID NOW</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="product">
-            <div class="productimg">
-                <img src="https://picsum.photos/250/250" alt="">
-            </div>
-            <div class="productdes">
-                <ul>
-                    <li>{{ title }}</li>
-                    <li>INR : {{ price }}</li>
-                    <li>Highest bid : {{ buyer }}</li>
-                    <li class="productbid"><a href="product"> BID NOW</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="product">
-            <div class="productimg">
-                <img src="https://picsum.photos/250/250" alt="">
-            </div>
-            <div class="productdes">
-                <ul>
-                    <li>{{ title }}</li>
-                    <li>INR : {{ price }}</li>
-                    <li>Highest bid : {{ buyer }}</li>
-                    <li class="productbid"><a href="product"> BID NOW</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="product">
-            <div class="productimg">
-                <img src="https://picsum.photos/250/250" alt="">
-            </div>
-            <div class="productdes">
-                <ul>
-                    <li>{{ title }}</li>
-                    <li>INR : {{ price }}</li>
-                    <li>Highest bid : {{ buyer }}</li>
-                    <li class="productbid"><a href="product"> BID NOW</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="product">
-            <div class="productimg">
-                <img src="https://picsum.photos/250/250" alt="">
-            </div>
-            <div class="productdes">
-                <ul>
-                    <li>{{ title }}</li>
-                    <li>INR : {{ price }}</li>
-                    <li>Highest bid : {{ buyer }}</li>
-                    <li class="productbid"><a href="product"> BID NOW</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="product">
-            <div class="productimg">
-                <img src="https://picsum.photos/250/250" alt="">
-            </div>
-            <div class="productdes">
-                <ul>
-                    <li>{{ title }}</li>
-                    <li>INR : {{ price }}</li>
-                    <li>Highest bid : {{ buyer }}</li>
-                    <li class="productbid"><a href="product"> BID NOW</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="product">
-            <div class="productimg">
-                <img src="https://picsum.photos/250/250" alt="">
-            </div>
-            <div class="productdes">
-                <ul>
-                    <li>{{ title }}</li>
-                    <li>INR : {{ price }}</li>
-                    <li>Highest bid : {{ buyer }}</li>
-                    <li class="productbid"><a href="product"> BID NOW</a></li>
-                </ul>
-            </div>
-        </div>
+        
     </div>
 </div>
 {% endblock content %}

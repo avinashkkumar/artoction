@@ -2,6 +2,8 @@ from django.db import models
 import uuid
 import pathlib
 
+from account.models import Account
+
 # Create your models here.
 
 # model product 
@@ -16,7 +18,7 @@ class Product(models.Model):
     base_price          = models.FloatField(default=None)
     current_price       = models.FloatField()
     current_bidder      = models.CharField(max_length=20,null=True,blank=True)
-    listedBy            = models.CharField(max_length=20)
+    listedBy            = models.ForeignKey(Account, on_delete=models.CASCADE)
     description         = models.TextField()
     category            = models.CharField(max_length=50, null= True, blank=True)
     upload_date         = models.DateField(auto_now=False, auto_now_add=True)

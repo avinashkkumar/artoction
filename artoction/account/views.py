@@ -15,7 +15,7 @@ from django.core.mail import EmailMessage,send_mail
 # app imports 
 from .forms import RegistrationForm
 
-
+from auction.models import Product
 
 # token generater for mail 
 from .tokens import generate_token
@@ -27,17 +27,18 @@ import os
 
 
 # Create your views here.
-# Account = get_user_model()
 
 # account view here
-def account(request, *args, **kwargs):
-    context = {'proName' : 'Avinash Kumar',
-               'prodNo': 5,
-               'title': 'Product Title',
-               'receviedUserName' : 'Chiptole',
-               'productCategory' : 'Digital Art',
-               'soldPrice': 1279 
-                }
+def account(request, id, *args, **kwargs):
+    user = Account.objects.get(pk=id)
+
+    user_product = Product.objects.filter(listedBy=id)
+    user_product_count = Product.objects.filter(listedBy=id).count()
+    context = {
+        'products' : user_product,
+        'count' : user_product_count,
+        'user' : user,
+    }
     return render(request, "account/account.html",context)
 
 
@@ -74,6 +75,10 @@ def register_view(request, *args, **kwargs):
         password2 = request.POST.get('password2')
         first_name = request.POST.get('firstName')
         last_name = request.POST.get('lastName')
+        try:
+            profile = request.FILES.get("profile")
+        except:
+            profile = None
 
         # passowrd verification and account creation with email to the user account
         if password1 == password2:
@@ -84,6 +89,7 @@ def register_view(request, *args, **kwargs):
             myUser.is_active = False
             myUser.lastName = last_name
             myUser.firstName = first_name
+            myUser.profile_image = profile
             myUser.save()
             # subject = "welcome"
             # message = "hello from the djanog app \n --with regards \n Avinash Kumar"
@@ -127,7 +133,6 @@ def activate(request, uidb64, token, *args, **kwargs):
         my_user = None
     if my_user is not None and generate_token.check_token(my_user, token):
         my_user.is_active = True
-        print(my_user.is_active)
         my_user.save()
         return redirect('login')
     else:
@@ -207,7 +212,6 @@ def password_reset_view(request, uidb64, token, *args, **kwargs):
         except(TypeError, ValueError, OverflowError, Account.DoesNotExist):
             user = None
         if(user is not None and generate_token.check_token(user, token)):
-            print(user)
             context = {}
             return render(request, "account/get_new_password.html",context)
         else:

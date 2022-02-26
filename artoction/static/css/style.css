@@ -561,10 +561,14 @@ nav{
 .prof img{
     border-radius: 50%;
     padding: 0.4rem;
+    width: 11rem;
+    height: 11rem;
 }
 .prof{
     padding-left: 15rem;
 }
+
+
 .profd{
     padding-right: 15rem;
     align-items: center;
@@ -588,10 +592,14 @@ nav{
     background-color: #ebebeb;
     padding: 00.2rem;
 }
+
+.preproda{
+    text-decoration: none;
+    color:#000000;
+}
 .prodlist{
     display: flex;
     flex-direction: row;
-    margin: auto;
     width: 60rem;
     border: 2px solid black;
     margin-top: 2rem;
@@ -602,6 +610,12 @@ nav{
     padding-bottom: 0.5rem;
     padding-left: 5rem;
     padding-right: 5rem;
+}
+
+.listimg img{
+    width: 18rem;
+    padding: 0.25rem;
+    border: 2px solid #000000;
 }
 .listdetail{
     align-items: center;
@@ -616,6 +630,10 @@ nav{
 
 .prodcont{
     padding-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /* *************** user password reset ********************** */
@@ -785,12 +803,28 @@ label{
     border-radius: 00.4rem;
 }
 
+.ogplimg{
+    width: 14rem;
+    height: 14rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.ogplimg img{
+    width: 14rem;
+    border: 2px solid black;
+    display: block;
+}
+
 .onpldes{
     padding-left: 0.4rem;
 }
-.onpldes li{
+.onpldes ul li{
     list-style: none;
     margin-top: 0.4rem;
+    width: 12rem;
 }
 
 .onpldes ul li a{
@@ -892,6 +926,18 @@ label{
     padding: 0.6rem;
     padding-top: 0.2rem ;
     padding-bottom: 0.2rem ;
+}
+
+.productimg{
+    height: 14rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.productimg img{
+    display: block;
+    width: 14rem;
 }
 
 /* ************************ footer ******************************** */

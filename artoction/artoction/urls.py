@@ -24,6 +24,7 @@ from artadmin.views import (
     adminUpComingAuction,
     adminOngoingAuction,
     adminCompletedAuction,
+    cycle,
 )
 
 
@@ -60,6 +61,7 @@ urlpatterns = [
     path('adminupcoming/', adminUpComingAuction, name="adminUpcoming"),
     path('adminongoing/', adminOngoingAuction, name="adminOngoing"),
     path('admincompleted/', adminCompletedAuction, name="adminCompleted"),
+    path('cycle/', cycle, name="cycle"),
 
     # home app
     path('', landing_view, name="home"),

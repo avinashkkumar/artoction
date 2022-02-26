@@ -5,62 +5,41 @@
 <div class="account">
     <div class="profile">
         <div class="prof">
-            <img src="https://picsum.photos/150/150" alt="">
+            {% if not user.profile_image %}
+                <img src="https://picsum.photos/150/150" alt="">
+            {% else %}
+                <img src="/static/{{ user.profile_image }}">
+            {% endif %}
         </div>
         <div class="profd">
             <ul>
-                <li><h1>{{ request.user }}</h1></li>
-                <li><h3>no of product listed : {{ prodNo }} </h3></li>
+                <li><h1>{{ user.username }}</h1></li>
+                <li><h3>no of product listed : {{ count }} </h3></li>
             </ul>
         </div>
     </div>
     <div class="prodcont">
         <!-- start for loop here for listing of sold products -->
-        <div class="prodlist">
-            <div class="listimg">
-                <img src="https://picsum.photos/180/180" alt="">
+
+        {% for product in products %}
+        <a href="{% url 'product' product.pk %}" class="preproda">
+            <div class="prodlist">
+                <div class="listimg">
+                    <img src="/static/{{ product.image1 }}" alt="">
+                </div>
+                <div class="listdetail">
+                    <ul>
+                        <li>
+                            <h2>{{ product.name }}</h2>
+                        </li>
+                        <li>Sold Price : INR  {{ product.current_price }}</li>
+                        <li>Sold to : {{ product.current_bidder }}</li>
+                        <li>Upload date : {{ product.upload_date }}</li>
+                    </ul>
+                </div>
             </div>
-            <div class="listdetail">
-                <ul>
-                    <li>
-                        <h2>{{ title }}</h2>
-                    </li>
-                    <li>Sold Price : INR  {{ soldPrice }}</li>
-                    <li>Sold to : {{ receviedUserName }}</li>
-                    <li>Product category : {{ productCategory }}</li>
-                </ul>
-            </div>
-        </div>
-        <div class="prodlist">
-            <div class="listimg">
-                <img src="https://picsum.photos/180/180" alt="">
-            </div>
-            <div class="listdetail">
-                <ul>
-                    <li>
-                        <h2>{{ title }}</h2>
-                    </li>
-                    <li>Sold Price : INR  {{ soldPrice }}</li>
-                    <li>Sold to : {{ receviedUserName }}</li>
-                    <li>Product category : {{ productCategory }}</li>
-                </ul>
-            </div>
-        </div>
-        <div class="prodlist">
-            <div class="listimg">
-                <img src="https://picsum.photos/180/180" alt="">
-            </div>
-            <div class="listdetail">
-                <ul>
-                    <li>
-                        <h2>{{ title }}</h2>
-                    </li>
-                    <li>Sold Price : INR  {{ soldPrice }}</li>
-                    <li>Sold to : {{ receviedUserName }}</li>
-                    <li>Product category : {{ productCategory }}</li>
-                </ul>
-            </div>
-        </div>
+        </a>
+        {% endfor %}
     </div>
 </div>
 
