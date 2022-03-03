@@ -11,9 +11,10 @@
     </form>
     <div class="rlopt">
         <ul>
-            <li ><a href="login">Login</a></li>
-            <li class="ractive"><a href="register">Register</a></li>
+            <li class="ractive"><a href="login">Login</a></li>
+            <li ><a href="register">Register</a></li>
         </ul>
+        <span><a href="{% url 'forgotPassword' %}">Forgot Password</a></span>
     </div>
 </div>
 {% endblock content %}

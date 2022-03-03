@@ -174,22 +174,21 @@ nav{
 
 .toggle .line1{
     transform: rotate( -45deg) translate(-3.5px , 2px);
-    /* background-color: red; */
+    background-color: red;
 }
 .toggle .line2{
     display: none;
 }
 .toggle .line3{
     transform: rotate( 45deg ) translate(-3.5px, -2px);
-    /* background-color: red; */
+    background-color: red;
 }
 
 
 /* ************************ hero ******************************** */
-.hero{
+/* .hero{
     margin: 1rem;
     border-radius: 0.5rem;
-    /* border: 2px solid black; */
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -201,7 +200,6 @@ nav{
 }
 .herot{
     width: 60%;
-    /* border: 2px solid black; */
     margin: 00.5rem;
     border-radius: 0.5rem;
 }
@@ -235,8 +233,56 @@ nav{
 }
 .hpara p{
     padding-bottom: 00.4rem;
+} 
+*/
+
+.hero{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    border-radius: 0.5rem;
+    height: 80vh;
+    align-content: initial;
+    justify-content: center;
 }
 
+.heroone{
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    justify-content: center;
+    border-radius: 0.5rem;
+    background: linear-gradient(to right, #00000050, #00000000);
+}
+
+.htitle{
+    font-size: 2rem;
+    font-weight: 900;
+    padding: 0rem 0rem 0rem 2.8rem;
+    color: #FFFFFF;
+}
+
+.hintro{
+    font-size: 1.1rem;
+    padding: 1.5rem 0rem 0rem 2.8rem;
+    color: #FFFFFF;
+}
+
+.hsb{
+    margin: 0.4rem 0rem 0.4rem 2.8rem;
+    padding: 0.4rem;
+    background-color: #FFFFFF;
+    width: 11rem;
+    border-radius: 0.25rem;
+}
+
+.hsb a{
+    padding: 0.2rem;
+    color: black;
+    text-decoration: none;
+    font-size: 1.1rem;
+    width: 100%;
+}
 
 /* ************************ testimonial ******************************** */
 

@@ -7,142 +7,83 @@
         <h2 class="listh">Ongoing Auction</h2>
         <div class="oglist">
             <!-- ongoing auction -->
-            <!-- use for loop here for the replication of the 
-            horizontal division of product list -->
+            <!-- use for loop here for the replication of the horizontal division of product list -->
+            {% for ongoing in ongoings %}
             <div class="ogplist">
                 <div class="ogplimg">
-                    <img src="https://picsum.photos/200/200" alt="">
+                    <img src="/static/{{ ongoing.image1 }}" alt="">
                 </div>
                 <div class="onpldes">
                     <ul>
-                        <li>{{ title }}</li>
-                        <li>INR {{ price }}</li>
-                        <li>{{ buyer }}</li>
-                        <li class="bid"><a href="product"> BID NOW</a></li>
+                        <li>{{ ongoing.name }}</li>
+                        <li>INR {{ ongoing.current_price }}</li>
+                        {% if not product.current_bidder %}
+                        <li>Highest bid : None</li>                        
+                        {% else %}
+                        <li>Highest bid : {{ ongoing.current_bidder }}</li>                        
+                        {% endif %}
+                        <li class="bid"><a href="{% url 'product' ongoing.pk %}"> BID NOW</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="ogplist">
-                <div class="ogplimg">
-                    <img src="https://picsum.photos/200/200" alt="">
-                </div>
-                <div class="onpldes">
-                    <ul>
-                        <li>{{ title }}</li>
-                        <li>INR {{ price }}</li>
-                        <li>{{ buyer }}</li>
-                        <li class="bid"><a href="product"> BID NOW</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="ogplist">
-                <div class="ogplimg">
-                    <img src="https://picsum.photos/200/200" alt="">
-                </div>
-                <div class="onpldes">
-                    <ul>
-                        <li>{{ title }}</li>
-                        <li>INR {{ price }}</li>
-                        <li>{{ buyer }}</li>
-                        <li class="bid"><a href="product"> BID NOW</a></li>
-                    </ul>
-                </div>
-            </div>
+            {% endfor %}
             <!-- for loop ends here  -->
             <div class="more">
                 <h3> <a href="ongoing"> View More</a></h3>
             </div>
         </div>
     </div>
+
+
     <div class="upcoming">
         <h2 class="listh">Upcoming Auction</h2>
         <div class="oglist">
             <!-- upcoming auction -->
-            <!-- use for loop here for the replication of the 
-            horizontal division of product list -->
+            <!-- use for loop here for the replication of the horizontal division of product list -->
+            {% for upcoming in upcomings %}
             <div class="ogplist">
                 <div class="ogplimg">
-                    <img src="https://picsum.photos/200/200" alt="">
+                    <img src="static/{{ upcoming.image1 }}" alt="">
                 </div>
                 <div class="onpldes">
                     <ul>
-                        <li>{{ title }}</li>
-                        <li>INR {{ price }}</li>
+                        <li>{{ upcoming.name }}</li>
+                        <li>INR {{ upcoming.current_price }}</li>
                     </ul>
                 </div>
             </div>
-            <div class="ogplist">
-                <div class="ogplimg">
-                    <img src="https://picsum.photos/200/200" alt="">
-                </div>
-                <div class="onpldes">
-                    <ul>
-                        <li>{{ title }}</li>
-                        <li>INR {{ price }}</li>
-                        <li>{{ buyer }}</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="ogplist">
-                <div class="ogplimg">
-                    <img src="https://picsum.photos/200/200" alt="">
-                </div>
-                <div class="onpldes">
-                    <ul>
-                        <li>{{ title }}</li>
-                        <li>INR {{ price }}</li>
-                        <li>{{ buyer }}</li>
-                    </ul>
-                </div>
-            </div>
+            {% endfor %}
             <!-- for loop ends here  -->
             <div class="more">
                 <h3> <a href="upcoming"> View More</a></h3>
             </div>
         </div>
     </div>
+
+
     <div class="completed">
         <h2 class="listh">Completed Auction</h2>
         <div class="oglist">
-            <!-- use for loop here for the replication of the 
-                horizontal division of product list -->
+            <!-- use for loop here for the replication of the horizontal division of product list -->
                 <!-- completed auction -->
+                {% for complete in completed %}
                 <div class="ogplist">
                     <div class="ogplimg">
-                        <img src="https://picsum.photos/200/200" alt="">
+                        <img src="/static/{{ complete.image1 }}" alt="">
                     </div>
                     <div class="onpldes">
                         <ul>
-                            <li>{{ title }}</li>
-                            <li>INR {{ price }}</li>
-                            <li>{{ buyer }}</li>
+                            <li>{{ complete.name }}</li>
+                            <li>INR {{ complete.current_price }}</li>
+                            {% if not complete.current_bidder %}
+                            <li>Highest bid : None</li>                        
+                            {% else %}
+                            <li>Highest bid : {{ complete.current_bidder }}</li>                        
+                            {% endif %}
                         </ul>
                     </div>
                 </div>
-                <div class="ogplist">
-                    <div class="ogplimg">
-                        <img src="https://picsum.photos/200/200" alt="">
-                    </div>
-                    <div class="onpldes">
-                    <ul>
-                        <li>{{ title }}</li>
-                        <li>INR {{ price }}</li>
-                        <li>{{ buyer }}</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="ogplist">
-                <div class="ogplimg">
-                    <img src="https://picsum.photos/200/200" alt="">
-                </div>
-                <div class="onpldes">
-                    <ul>
-                        <li>{{ title }}</li>
-                        <li>INR {{ price }}</li>
-                        <li>{{ buyer }}</li>
-                    </ul>
-                </div>
-            </div>
+                {% endfor %}
             <!-- for loop ends here  -->
             <div class="more">
                 <h3> <a href="completed"> View More</a></h3>

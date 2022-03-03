@@ -3,6 +3,8 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.core.files.storage import FileSystemStorage
 from django.conf import settings
 import os
+import pathlib
+import uuid
 
 
 class MyAccountManager(BaseUserManager):
@@ -54,8 +56,8 @@ class Account(AbstractBaseUser):
 	firstName				= models.CharField( max_length = 20 ,null = True, blank =True)
 	lastName				= models.CharField( max_length = 20 ,null = True, blank =True)
 
-	USERNAME_FIELD = 'email'
-	REQUIRED_FIELDS = ['username']
+	USERNAME_FIELD = 'username'
+	REQUIRED_FIELDS = ['email']
 
 	objects = MyAccountManager()
 

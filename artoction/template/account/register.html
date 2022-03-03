@@ -2,11 +2,13 @@
 {% load static %}
 {% block content %}
 <div class="register">
-    <form action="" class="registerForm" method="post"> {% csrf_token %}
-        <input type="text" name="username" id="username" placeholder="Username">
-        <input type="email" name="email" id="email" placeholder="Email">
-        <input type="text" name="password1" id="password1" placeholder="Password">
-        <input type="text" name="password2" id="passowrd2" placeholder="Confirm Password">
+    <form action="" class="registerForm" method="post" enctype="multipart/form-data"> {% csrf_token %}
+        <input type="text" name="username" id="username" placeholder="Username" required>
+        <input type="text" name="firstName" id="firstName" placeholder="firstName" required>
+        <input type="text" name="lastName" id="lastName" placeholder="lastName" required>
+        <input type="email" name="email" id="email" placeholder="Email" required>
+        <input type="text" name="password1" id="password1" placeholder="Password" required>
+        <input type="text" name="password2" id="passowrd2" placeholder="Confirm Password"required>
         <label for="image"> Upload profile picture</label>
         <input type="file" name="profile"  id="image">
         <button type="submit">Register</button>
@@ -14,9 +16,10 @@
     {{ from}}
     <div class="rlopt">
         <ul>
-            <li class="ractive"><a href="login">Login</a></li>
-            <li><a href="register">Register</a></li>
+            <li ><a href="login">Login</a></li>
+            <li class="ractive"><a href="register">Register</a></li>
         </ul>
+        <span><a href="{% url 'forgotPassword' %}">Forgot Password</a></span>
     </div>
 </div>
 {% endblock content %}

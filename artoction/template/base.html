@@ -1,3 +1,4 @@
+{% load tz %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -18,22 +19,25 @@
     <nav>
         <div class="logo" id="logo">
             <a href=" /">KEIBAI</a>
+            {% comment %} {% timezone "Asia/Kolkata" %}
+                <p>{{ request.user.last_login }}</p>
+            {% endtimezone %} {% endcomment %}
         </div>
         <div class="search" id="search">
-            <form action="" method="get">
-                <input type="text">
+            <form action="{% url 'search' %}" method="get">
+                <input type="text" name="id"placeholder="Search aution by id">
                 <button type="submit">Go</button>
             </form>
         </div>
         <div class="link" id="link">
             <ul class="links" id="links">
-                <li class="link1" id="link1"><a href="create">Add Product</a></li>
-                <li class="link3" id="link3"> <a href="auction">Auctions</a></li>
+                <li class="link3" id="link3"> <a href="{% url 'auctions' %}">Auctions</a></li>
                 {% if request.user.is_authenticated %}
-                <li class="link2" id="link2"> <a href="account">Account</a></li>                
-                <li class="link2" id="link2"> <a href="logout">Logout</a></li>                
+                <li class="link1" id="link1"><a href="{% url 'create' %}">Add Product</a></li>
+                <li class="link2" id="link2"> <a href="{% url 'account' request.user.pk %}">Account</a></li>                
+                <li class="link2" id="link2"> <a href="{% url 'logout' %}">Logout</a></li>                
                 {% else %}
-                <li class="link2" id="link2"> <a href="login">Login</a></li>                
+                <li class="link2" id="link2"> <a href="{% url 'login' %}">Login</a></li>                
                 {% endif %}
 
             </ul>

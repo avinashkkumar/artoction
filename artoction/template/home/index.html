@@ -2,40 +2,26 @@
 {% load static %}
 
     {% block content %}
-    <div01 class="content" id="content">
-        <div class="hero" id="hero">
-            <div class="herot" id="herot">
-                <h2 id="herot">Welcome to our website</h2>
-            </div>
-            <div class="herose" id="herose">
-                <div class="heroseli">
-                    <img src="https://picsum.photos/150/105" alt="" class="heroimg">
-                    <div class="hpara">
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        <a href="product"> Bid Now </a>
-                    </div>
-                </div>
-                <div class="heroseli">
-                    <img src="https://picsum.photos/150/105" alt="" class="heroimg">
-                    <div class="hpara">
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        <a href="product"> Bid Now </a>
-                    </div>
-                </div>
-                <div class="heroseli">
-                    <img src="https://picsum.photos/150/105" alt="" class="heroimg">
-                    <div class="hpara">
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        <a href="product"> Bid Now </a>
-                    </div>
-                </div>
-                <div class="heroseli">
-                    <img src="https://picsum.photos/150/105" alt="" class="heroimg">
-                    <div class="hpara">
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        <a href="product"> Bid Now </a>
-                    </div>
-                </div>
+    <div class="content" id="content">
+        <div class="hero" style="background-image: url({% static 'img/marion_sharbanidasgupta_ld_8622.jpg' %});">
+            <div class="heroone">
+                <span class="htitle">Welcome to Artoction</span>
+                <span class="hintro">A place where you can buy paintings, pots, <br>
+                                    vases, sculptures, wooden carbings, <br>
+                                    stone carvings and much more ... 
+                </span>
+                <span class="hsb">
+                    {% if request.user.is_authenticated %}
+                    <a class="bidlink" href="{% url 'auctions' %}">
+                        Start Bidding &nbsp; &#10095;
+                    </a>
+                    {% else %}
+                    <a class="bidlink" href="{% url 'login' %}">
+                        Login to bid &nbsp; &#10095;
+                    </a>
+                    {% endif %}
+                </span>
+
             </div>
         </div>
 
@@ -46,21 +32,24 @@
             </div>
             <div class="tlist" id="tlist">
                 <div class="tlc" id="tlc1">
-                    <img src= {% static 'img/avatar.svg' %} alt="" class="tlci">
+                    <img src="./img/avatar.svg" alt="" class="tlci">
                     <p class="tlcd">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis doloribus eos nulla inventore optio mollitia nisi eaque possimus dignissimos odit.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis doloribus eos nulla
+                        inventore optio mollitia nisi eaque possimus dignissimos odit.
                     </p>
                 </div>
                 <div class="tlc" id="tlc2">
-                    <img src= {% static 'img/avatar.svg' %} alt="" class="tlci">
+                    <img src="./img/avatar.svg" alt="" class="tlci">
                     <p class="tlcd">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis doloribus eos nulla inventore optio mollitia nisi eaque possimus dignissimos odit.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis doloribus eos nulla
+                        inventore optio mollitia nisi eaque possimus dignissimos odit.
                     </p>
                 </div>
                 <div class="tlc" id="tlc3">
-                    <img src= {% static 'img/avatar.svg' %} alt="" class="tlci">
+                    <img src="./img/avatar.svg" alt="" class="tlci">
                     <p class="tlcd">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis doloribus eos nulla inventore optio mollitia nisi eaque possimus dignissimos odit.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis doloribus eos nulla
+                        inventore optio mollitia nisi eaque possimus dignissimos odit.
                     </p>
                 </div>
             </div>
@@ -68,4 +57,5 @@
 
 
     </div>
+
     {% endblock content %}

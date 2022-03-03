@@ -2,3 +2,8 @@
 /__pycache__/
 *.pyc
 artvenv/
+
+*.jpg
+*.jpeg
+*.png
+*.gif

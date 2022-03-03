@@ -32,6 +32,10 @@ AUTH_USER_MODEL = 'account.Account'
 
 ALLOWED_HOSTS = []
 
+PASSWORD_RESET_TIMEOUT = 43200
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 
 # Application definition
 
@@ -45,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'auction',
+    'artadmin',
 ]
 
 MIDDLEWARE = [
@@ -72,6 +77,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.tz',
             ],
         },
     },
@@ -83,10 +89,26 @@ WSGI_APPLICATION = 'artoction.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/rehttpssettings/#databases
 
+# default database
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR , 'database.sqlite3'),
+#     }
+# }
+
+# postgresql database
+DB_NAME = os.environ.get("DAB_NAME")
+DB_USER = os.environ.get("DAB_USER")
+DB_PASSWORD = os.environ.get("DAB_PASSWORD")
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR , 'database.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': DB_NAME,
+        'USER': DB_USER,
+        'PASSWORD': DB_PASSWORD,
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 

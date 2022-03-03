@@ -3,109 +3,24 @@
 {% block content %}
 <div class="ongoingcontext">
     <!-- completed auction page -->
-    <h1 class="ongoinghead">{{ titleHead }}</h1>
+    <h1 class="ongoinghead">Upcoming Auctions</h1>
     <div class="prodllist">
         <!-- Start for loop here for the object list recieved  -->
+        {% for product in upcoming %}
         <div class="product">
             <div class="productimg">
-                <img src="https://picsum.photos/250/250" alt="">
+                <img src="/static/{{ product.image1 }}" alt="">
             </div>
             <div class="productdes">
                 <ul>
-                    <li>{{ title }}</li>
-                    <li>Starting Price {{ Price }}</li>
+                    <li>{{ product.name }}</li>
+                    <li>Starting Price {{ product.current_price }}</li>
                 </ul>
             </div>
         </div>
+        {% endfor %}
         <!-- product list for loop ends here -->
-        <div class="product">
-            <div class="productimg">
-                <img src="https://picsum.photos/250/250" alt="">
-            </div>
-            <div class="productdes">
-                <ul>
-                    <li>{{ title }}</li>
-                    <li>Starting Price {{ Price }}</li>
-                </ul>
-            </div>
-        </div>
-        <div class="product">
-            <div class="productimg">
-                <img src="https://picsum.photos/250/250" alt="">
-            </div>
-            <div class="productdes">
-                <ul>
-                    <li>{{ title }}</li>
-                    <li>Starting Price {{ Price }}</li>
-                </ul>
-            </div>
-        </div>
-        <div class="product">
-            <div class="productimg">
-                <img src="https://picsum.photos/250/250" alt="">
-            </div>
-            <div class="productdes">
-                <ul>
-                    <li>{{ title }}</li>
-                    <li>Starting Price {{ Price }}</li>
-                </ul>
-            </div>
-        </div>
-        <div class="product">
-            <div class="productimg">
-                <img src="https://picsum.photos/250/250" alt="">
-            </div>
-            <div class="productdes">
-                <ul>
-                    <li>{{ title }}</li>
-                    <li>Starting Price {{ Price }}</li>
-                </ul>
-            </div>
-        </div>
-        <div class="product">
-            <div class="productimg">
-                <img src="https://picsum.photos/250/250" alt="">
-            </div>
-            <div class="productdes">
-                <ul>
-                    <li>{{ title }}</li>
-                    <li>Starting Price {{ Price }}</li>
-                </ul>
-            </div>
-        </div>
-        <div class="product">
-            <div class="productimg">
-                <img src="https://picsum.photos/250/250" alt="">
-            </div>
-            <div class="productdes">
-                <ul>
-                    <li>{{ title }}</li>
-                    <li>Starting Price {{ Price }}</li>
-                </ul>
-            </div>
-        </div>
-        <div class="product">
-            <div class="productimg">
-                <img src="https://picsum.photos/250/250" alt="">
-            </div>
-            <div class="productdes">
-                <ul>
-                    <li>{{ title }}</li>
-                    <li>Starting Price {{ Price }}</li>
-                </ul>
-            </div>
-        </div>
-        <div class="product">
-            <div class="productimg">
-                <img src="https://picsum.photos/250/250" alt="">
-            </div>
-            <div class="productdes">
-                <ul>
-                    <li>{{ title }}</li>
-                    <li>Starting Price {{ Price }}</li>
-                </ul>
-            </div>
-        </div>
+        
     </div>
 </div>
 {% endblock content %}
