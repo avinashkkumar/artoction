@@ -25,34 +25,30 @@
                     <input type="hidden" name="next" value="{{ request.path }}">
                     <button type="submit">Change Password</button>
                 </form></li>
-                <li><a href="{% url 'addressChange' request.user.pk %}">Change Address</a></li>
+                <li><a href="">Change Address</a></li>
             </ul>
         </div>
         {% endif %}
     </div>
-    <div class="prodcont">
-        <!-- start for loop here for listing of sold products -->
-
-        {% for product in products %}
-        <a href="{% url 'product' product.pk %}" class="preproda">
-            <div class="prodlist">
-                <div class="listimg">
-                    <img src="/static/{{ product.image1 }}" alt="">
-                </div>
-                <div class="listdetail">
-                    <ul>
-                        <li>
-                            <h2>{{ product.name }}</h2>
-                        </li>
-                        <li>Sold Price : INR  {{ product.current_price }}</li>
-                        <li>Sold to : {{ product.current_bidder }}</li>
-                        <li>Upload date : {{ product.upload_date }}</li>
-                    </ul>
-                </div>
+    <div class="change-credentials">
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="div-address-update">
+                <label for="address">Enter your address</label>
+                <input type="text" name="addLine1" placeholder="Address line 1">
+                <input type="text" name="addLine2" placeholder="Address line 2">
+                <input type="text" name="addLine3" placeholder="Address line 3">
+                <input type="text" name="addLine4" placeholder="Address line 4">
             </div>
-        </a>
-        {% endfor %}
+            <div class="div-proof">
+                <label for="doc">Attach address proof</label>
+                <input type="file" name="doc" id="">
+            </div>
+            <button type="submit">Submit</button>
+        </form>
     </div>
 </div>
 
 {% endblock content %}
+
+

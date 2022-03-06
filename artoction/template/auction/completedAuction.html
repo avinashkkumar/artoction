@@ -18,10 +18,11 @@
                     <li>{{ product.name }}</li>
                     <li>Sold : {{ product.current_price }}</li>
                     {% if not product.current_bidder %}
-                        <li>Sold to : Not Sold </li>                        
-                        {% else %}
-                        <li>Sold to : {{ product.current_bidder }}</li>                        
-                        {% endif %}
+                    <li>Sold to : Not Sold </li>                        
+                    {% else %}
+                    <li>Sold to : {{ product.current_bidder }}</li>                        
+                    {% endif %}
+                    <li class="productbid"><a href="{% url 'product' product.pk %}"> View Product</a></li>
                 </ul>
             </div>
         </div>

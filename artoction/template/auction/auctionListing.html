@@ -49,6 +49,7 @@
                     <ul>
                         <li>{{ upcoming.name }}</li>
                         <li>INR {{ upcoming.current_price }}</li>
+                        <li class="bid"><a href="{% url 'product' upcoming.pk %}"> View Product</a></li>
                     </ul>
                 </div>
             </div>
@@ -80,6 +81,7 @@
                             {% else %}
                             <li>Highest bid : {{ complete.current_bidder }}</li>                        
                             {% endif %}
+                            <li class="bid"><a href="{% url 'product' complete.pk %}"> View Product</a></li>
                         </ul>
                     </div>
                 </div>

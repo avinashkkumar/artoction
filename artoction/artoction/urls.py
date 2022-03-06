@@ -25,12 +25,19 @@ from artadmin.views import (
     adminOngoingAuction,
     adminCompletedAuction,
     cycle,
+    feedback_working,
+    admin_account_listing,
+    deactivate_account,
+    activate_account,
+    change_feedback_status,
+    address_verification,
 )
 
 
 from home.views import (
     landing_view,
     productSearch,
+    feedback,
     )
 
 from auction.views import (
@@ -40,6 +47,7 @@ from auction.views import (
     completed,
     product,
     productCreate,
+    price_update,
 )
 
 from account.views import (
@@ -50,6 +58,8 @@ from account.views import (
     activate,
     forgot_password,
     password_reset_view,
+    change_address_view,
+    Change_password,
 )
 
 urlpatterns = [
@@ -62,10 +72,17 @@ urlpatterns = [
     path('adminongoing/', adminOngoingAuction, name="adminOngoing"),
     path('admincompleted/', adminCompletedAuction, name="adminCompleted"),
     path('cycle/', cycle, name="cycle"),
+    path('feedback-list',feedback_working,name="feedbackWorking"),
+    path('user-list',admin_account_listing,name="userAccounts"),
+    path('activate-user/<int:id>',activate_account,name="activateUser"),
+    path('deactivate-user/<int:id>',deactivate_account,name="deactivateUser"),
+    path('feedback-status-change/<int:id>',change_feedback_status,name="changeFeedbackStatus"),
+    path('address-verification',address_verification,name="addressVerification"),
 
     # home app
     path('', landing_view, name="home"),
     path('search', productSearch, name="search"),
+    path('feedback', feedback, name='feedback'),
 
     # auction app
     path('auction', auction_land, name='auctions'),
@@ -74,6 +91,7 @@ urlpatterns = [
     path('completed', completed, name="completed"),
     path('create', productCreate, name="create"),
     path('product/<int:id>', product, name="product"),
+    path('price-update/<int:id>', price_update, name="priceUpdate"),
 
     # account app
     path('account/<int:id>', account, name="account"),
@@ -82,10 +100,9 @@ urlpatterns = [
     path('register', register_view, name="register"),
     path('forgot-password', forgot_password , name="forgotPassword"),
     path('activate/<uidb64>/<token>', activate , name="activate"),
-    path('<uidb64>/<token>/reset-password/', password_reset_view, name="resetPassword"),
-
-
-
+    path('<uidb64>/<token>/set-password/', password_reset_view, name="resetPassword"),
+    path('address-change/<int:id>', change_address_view,name='addressChange'),
+    path('change-password',Change_password,name='changePassword'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root = MEDIA_ROOT) 

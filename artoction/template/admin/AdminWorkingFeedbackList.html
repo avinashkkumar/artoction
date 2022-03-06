@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/Adminstyle.css' %}">
+{% endblock head %}
+
+{% block title %}
+Artoction | User List
+{% endblock title %}
+
+{% block content %}
+<div class="admin-feedback">
+    <h1>Feedback from customers</h1>
+    <div class="feedback-list">
+        {% for feedback in feedbacks %}
+            {% if feedback.status == "inprogress" %}
+                <div class="feedback-container bg-yellow">        
+            {% elif feedback.status == "resolved" %}
+                <div class="feedback-container bg-green">    
+            {% else %}
+                <div class="feedback-container ">    
+            {% endif %}
+                <div class="feedback-item-one">
+                    <ul>
+                        <li>{{ feedback.user.username}}</li>
+                        <li class="second-item">EMAIL</li>
+                        <li></li>
+                    </ul>
+                    <form action="{% url 'changeFeedbackStatus' feedback.pk %}" method="post" class="status-form">
+                        {% csrf_token %}
+                        <select name="status" id="">
+                            <option value="untouched">Unattended</option>
+                            <option value="inprogress">In Progress</option>
+                            <option value="resolved">Resolved</option>
+                        </select>
+                        <button type="submit">Change status</button>
+                    </form>
+                </div>
+                <div class="feedback-item-two">
+                    <span>{{ feedback.feedback }}
+                    </span>
+                </div>
+            </div>
+        {% endfor %}
+       
+    </div>
+</div>
+{% endblock content %}

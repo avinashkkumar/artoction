@@ -903,7 +903,7 @@ footer{
     background-color: white;
 }
 
-.feedback textarea{
+textarea{
     height: 8rem;
     resize: none;
 }
@@ -935,3 +935,93 @@ footer{
         padding-bottom: 0.5rem;
     }   
 }
+
+
+
+/* ************************ activation ******************************** */
+.activate{
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+}
+
+.activate h1{
+    text-align: center;
+    padding-bottom: 1rem;
+    font-size: 1.6rem;
+}
+
+.activate form{
+    display: flex;
+    flex-direction: column;
+    width: 45rem;
+    align-items: center;
+}
+
+.div-address{
+    display: flex;
+    flex-direction: column;
+    width: 22rem;
+}
+
+.div-address input{
+    padding: 0.2rem;
+    margin: 0.2rem;
+    border: 1px solid black;
+}
+
+.div-proof{
+    display: flex;
+    flex-direction: column;
+    width: 22rem;
+    padding-bottom: 0.5rem;
+}
+
+.read-hiw{
+    width: 22rem;
+    padding: 0rem 0rem 1rem 1rem;
+}
+
+.hiwa{
+    text-decoration: none;
+    color :#5a018d;
+}
+
+
+.activate form button{
+    width: 10rem;
+    padding: 0.4rem;
+    border: 1px solid #000000;
+    border-radius: 0.2rem;
+}
+
+/* ************************ change address ******************************** */
+.change-credentials{
+    display: flex;
+    justify-content: space-around;
+}
+
+.div-address-update{
+    display: flex;
+    flex-direction: column;
+    width: 22rem;
+    padding-bottom: 0.4rem 0rem 0.2rem 0rem;
+}
+
+.div-address-update input{
+    padding: 0.2rem;
+    margin: 0.2rem;
+    border: 1px solid black;
+}
+
+.change-credentials form button{
+    width: 22rem;
+    align-items: center;
+    padding: 0.28rem 0rem 0.2rem 0rem;
+    border: 1px solid #000000;
+}
+
+
+/* ************************  ******************************** */

@@ -7,6 +7,8 @@ from .models import Product
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['name', 'isUpcoming', 'isOngoing', 'isSold']
+    list_display = ['name','base_price', 'current_price', 'isUpcoming', 'isOngoing', 'isSold']
+
+
     
 

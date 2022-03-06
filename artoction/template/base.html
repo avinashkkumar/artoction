@@ -62,7 +62,9 @@
                     <li>Auctions</li>
                     <li>How it Works</li>
                     <li>FAQ</li>
-                    <li>Support</li>
+                    {% if request.user.is_admin %}
+                      <li><a href="{% url 'adminHome' %}" style="color: #000000;text-decoration: none;">Admin Home</a></li>
+                    {% endif %}
                     <li>Terms of use</li>
                 </ul>
             </div>
@@ -79,13 +81,13 @@
         </div>
         <div class="fs2" id="fs2">
             <h3>feedback</h3>
-            <form action="" method="post" class="feedback">
+            <form action="{% url 'feedback' %}" method="post" class="feedback">
+                {% csrf_token %}
                 <input type="email" name="email" id="" class="email" placeholder="Your email for further contact ...">
                 <textarea name="fetext" id="" cols="20" rows="10" placeholder="What do you think "></textarea>
+                <input type="hidden" name="next" value="{{ request.path }}">
                 <button type="submit">Submit</button>
             </form>
-        </div>
-
     </footer>
 
 </body>

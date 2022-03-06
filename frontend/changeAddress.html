@@ -1,0 +1,29 @@
+<div class="account">
+    <div class="profile">
+        <div class="prof">
+            <img src="https://picsum.photos/150/150" alt="">
+        </div>
+        <div class="profd">
+            <ul>
+                <li>{% pro name %}</li>
+                <li>no of product listed : {% prodNo %}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="change-credentials">
+        <form action="" method="post">
+            <div class="div-address-update">
+                <label for="address">Enter your address</label>
+                <input type="text" name="addLine1" placeholder="Address line 1">
+                <input type="text" name="addLine2" placeholder="Address line 2">
+                <input type="text" name="addLine3" placeholder="Address line 3">
+                <input type="text" name="addLine4" placeholder="Address line 4">
+            </div>
+            <div class="div-proof">
+                <label for="doc">Attach address proof</label>
+                <input type="file" name="doc" id="">
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/Adminstyle.css' %}">
+{% endblock head %}
+
+{% block title %}
+Artoction | User List
+{% endblock title %}
+
+{% block content %}
+<div class="admin-account-list">
+    <h1>Account Listings</h1>
+    <table class="user-list">
+        <colgroup>
+            <col class="user-id">
+            <col class="user-username">
+            <col class="user-email">
+            <col class="user-status">
+            <col class="ban-user">
+        </colgroup>
+        <thead>
+            <th>u.Id</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>user Status</th>
+            <th>Ban User</th>
+        </thead>
+        <tbody>
+            <!-- loop here  -->
+            {% for user in ulist %}
+            <tr>
+                <td>{{ user.pk }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.is_active }}</td>
+                {% if user.is_active %}
+                <td><a href="{% url 'deactivateUser' user.pk %}"><img class="svg-red trash" src="./img/trash3.svg" alt=""></a></td>
+                {% else %}
+                <td><a href="{% url 'activateUser' user.pk %}"><img class="svg-green trash" src="./img/check-circle-fill.svg" alt=""></a></td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+            <!-- loop ends here -->
+            
+
+        </tbody>
+    </table>
+</div>
+{% endblock content %}

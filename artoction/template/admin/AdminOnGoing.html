@@ -35,17 +35,23 @@ Artoction Admin | Ongoing Auctions
             </thead>
             <tbody>
                 <!-- loop here  -->
+                {% for product in products %}
                 <tr>
-                    <td>1</td>
-                    <td>product Name is product</td>
-                    <td>march 16,2002</td>
-                    <td>User@1234</td>
+                    <td>{{ product.pk }}</td>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.upload_date }}</td>
+                    {% if not product.current_bidder %}
+                    <td>None</td>
+                    {% else %}
+                    <td>{{ product.current_bidder }}</td>
+                    {% endif %}
                     <td class="delete-cell">
                         <a href="">
-                            <img src="./img/trash3.svg" alt="">
+                            <img src="{% static 'img/trash3.svg' %}" alt="">
                         </a>
                     </td>
                 </tr>
+                {% endfor %}
 
                 <!-- loop ends here -->
 

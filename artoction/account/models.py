@@ -55,9 +55,10 @@ class Account(AbstractBaseUser):
 	hide_email				= models.BooleanField(default=True)
 	firstName				= models.CharField( max_length = 20 ,null = True, blank =True)
 	lastName				= models.CharField( max_length = 20 ,null = True, blank =True)
+	verified_address		= models.BooleanField(default=False)
 
 	USERNAME_FIELD = 'username'
-	REQUIRED_FIELDS = ['email']
+	REQUIRED_FIELDS = ['email','firstName','lastName']
 
 	objects = MyAccountManager()
 
@@ -72,3 +73,31 @@ class Account(AbstractBaseUser):
 	# Does this user have permission to view this app? (ALWAYS YES FOR SIMPLICITY)
 	def has_module_perms(self, app_label):
 		return True
+
+
+
+
+
+# address table for each user
+
+def address_upload_handler(instance, filename):
+	fpath 		= pathlib.Path(filename)
+	FileName	= str(uuid.uuid1())
+	return f"addressProof/{FileName}{fpath.suffix}"
+
+
+class Address(models.Model):
+	user 				= models.OneToOneField(Account, on_delete=models.CASCADE)
+	address_line_one	= models.CharField(max_length=75)
+	address_line_two	= models.CharField(max_length=75)
+	address_line_three	= models.CharField(max_length=75)
+	address_line_four	= models.CharField(max_length=75)
+	address_proof		= models.FileField(upload_to=address_upload_handler, max_length=100)
+	is_verified			= models.BooleanField(default=False)
+	is_deneyed			= models.BooleanField(default=False)
+	
+
+	def __str__(self):
+		account = Account.objects.get(pk = self.user_id)
+		return f"{account.username}'s address"
+	

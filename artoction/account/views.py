@@ -1,7 +1,10 @@
 # django imports 
 from django.shortcuts import render , HttpResponse, redirect
 from django.contrib.auth import authenticate, login, logout
-from .models import Account
+from account.models import (
+    Account,
+    Address,
+)
 
 # django import for email and tokens
 from django.core.mail import send_mail
@@ -30,14 +33,21 @@ import os
 
 # account view here
 def account(request, id, *args, **kwargs):
-    user = Account.objects.get(pk=id)
-
+    try:
+        user = Account.objects.get(pk=id)
+    except:
+        user = Account.objects.get(pk=request.user.pk)
     user_product = Product.objects.filter(listedBy=id)
     user_product_count = Product.objects.filter(listedBy=id).count()
+    if request.user.pk == id:
+        sameuser = True
+    else:
+        sameuser = False
     context = {
         'products' : user_product,
         'count' : user_product_count,
         'user' : user,
+        'sameuser' : sameuser
     }
     return render(request, "account/account.html",context)
 
@@ -56,7 +66,6 @@ def login_view(request, *args, **kwargs):
             return render(request,'account/login.html')
     else:
         return render(request, 'account/login.html')
-
 
 
 # register page here
@@ -126,17 +135,38 @@ def register_view(request, *args, **kwargs):
 
 # activating the user account
 def activate(request, uidb64, token, *args, **kwargs):
-    try:
-        uid = force_text(urlsafe_base64_decode(uidb64))
-        my_user = Account.objects.get(pk=uid)
-    except(TypeError, ValueError, OverflowError, Account.DoesNotExist):
-        my_user = None
-    if my_user is not None and generate_token.check_token(my_user, token):
-        my_user.is_active = True
-        my_user.save()
-        return redirect('login')
-    else:
-        return render(request, 'account/something_went_wrong.html')
+    if request.method == "POST":
+        try:
+            uid = force_text(urlsafe_base64_decode(uidb64))
+            my_user = Account.objects.get(pk=uid)
+        except(TypeError, ValueError, OverflowError, Account.DoesNotExist):
+            my_user = None
+        if my_user is not None and generate_token.check_token(my_user, token):
+            # Getting address and saving it to database
+            address = Address()
+            address.user                = my_user
+            address.address_line_one    = request.POST.get('addLine1')
+            address.address_line_two    = request.POST.get('addLine2')
+            address.address_line_three  = request.POST.get('addLine3')
+            address.address_line_four   = request.POST.get('addLine3')
+            address.save()
+            # activating user
+            my_user.is_active = True
+            my_user.save()
+            return redirect('login')
+        else:
+            return render(request, 'account/something_went_wrong.html')
+    elif request.method == "GET":
+        try:
+            uid = force_text(urlsafe_base64_decode(uidb64))
+            my_user = Account.objects.get(pk=uid)
+        except(TypeError, ValueError, OverflowError, Account.DoesNotExist):
+            my_user = None
+        if my_user is not None and generate_token.check_token(my_user, token):
+            return render(request,'account/activate.html')
+        else:
+            return render(request,'account/something_went_wrong.html')
+        
 
 
 
@@ -216,3 +246,91 @@ def password_reset_view(request, uidb64, token, *args, **kwargs):
             return render(request, "account/get_new_password.html",context)
         else:
             return render(request, 'account/something_went_wrong.html')
+
+
+
+
+
+def change_address_view(request, id, *args, **kwargs):
+    if request.method == "POST":
+        if request.user.pk == id:
+            try:
+                line1   = request.POST.get('addLine1')
+            except:
+                line1   = None
+            try:
+                line2   = request.POST.get('addLine2')
+            except:
+                line2   = None
+            try:
+                line3   = request.POST.get('addLine3')
+            except:
+                line3   = None
+            try:
+                line4   = request.POST.get('addLine4')
+            except:
+                line4   = None
+            address = Address.objects.get(user=id)
+            address.address_line_one    = line1
+            address.address_line_two    = line2
+            address.address_line_three  = line3
+            address.address_line_four   = line4
+            address.address_proof       = request.FILES.get('doc')
+            address.save()
+            return redirect('account',request.user.pk)
+
+
+    elif request.method == "GET":
+        if request.user.pk == id:
+            user = Account.objects.get(pk=id)
+            user_product = Product.objects.filter(listedBy=id)
+            user_product_count = Product.objects.filter(listedBy=id).count()
+            if request.user.pk == id:
+                sameuser = True
+            else:
+                sameuser = False
+            context = {
+                'products' : user_product,
+                'count' : user_product_count,
+                'user' : user,
+                'sameuser' : sameuser
+            }
+            return render(request,'account/changeAddress.html',context)
+        else:
+            return render(request,'account/something_went_wrong.html' )
+
+
+
+
+def Change_password(request, *args, **kwargs):
+    if request.user.is_authenticated:
+        if request.method == "POST":
+            email = request.user.email
+            try:
+                user = Account.objects.get(email=email)
+            except(TypeError, ValueError, OverflowError, Account.DoesNotExist):
+                user = None
+            if user is not None:
+                current_site = get_current_site(request)
+                conf_email_subject = "Password reset is initialized for your account at Garware College Of Commerce"
+                conf_message = render_to_string('account/password_change_email.html',{
+                    'name' : user.firstName + " " + user.lastName,
+                    'domain' : current_site,
+                    'uid' : urlsafe_base64_encode(force_bytes(user.pk)),
+                    'token' : generate_token.make_token(user),
+                })
+                # sending email
+                conf_email = EmailMessage(
+                        conf_email_subject,
+                        conf_message,
+                        os.environ.get('EMAIL_ORIGIN'),
+                        [user.email],
+                    )
+                conf_email.fail_silently = True
+                conf_email.send()
+                return render(request, 'account/forgot_password_conform.html')
+            else:
+                return render(request, 'account/forgot_password_conform_fail.html')
+        return render(request, 'account/something_went_wrong.html')
+    else:
+        return redirect("home")

@@ -2,14 +2,29 @@ from django.http.response import HttpResponse
 from django.shortcuts import render,redirect
 from auction.models import Product
 from account.models import Account
+import random
 
 # Create your views here.
 
 # auction listing page is here 
 def auction_land(request, *args, **kwargs):
-    three_ongoing = Product.objects.filter(isOngoing=True)[:3]
-    three_upcoming = Product.objects.filter(isUpcoming=True)[:3]
-    three_completed = Product.objects.filter(isSold=True)[:3]
+    three_ongoing_count     = Product.objects.filter(isOngoing=True).count()
+    three_ongoing_count     = three_ongoing_count - 3
+    Ongoing_rand_start      = random.randint(0,three_ongoing_count)
+    ongoing_rand_end        = Ongoing_rand_start + 3
+    three_ongoing           = Product.objects.filter(isOngoing=True)[Ongoing_rand_start:ongoing_rand_end]
+
+    three_upcoming_count    = Product.objects.filter(isUpcoming=True).count()
+    three_upcoming_count    = three_upcoming_count - 3
+    upcoming_rand_start     = random.randint(0, three_upcoming_count)
+    upcoming_rand_end       = upcoming_rand_start + 3
+    three_upcoming          = Product.objects.filter(isUpcoming=True)[upcoming_rand_start:upcoming_rand_end]
+
+    completed_count         = Product.objects.filter(isSold=True).count()
+    completed_count         = completed_count - 3
+    rand_start              = random.randint(0, completed_count)
+    rnad_end                = rand_start + 3
+    three_completed         = Product.objects.filter(isSold=True)[rand_start:rnad_end]
     context = {
         'upcomings' : three_upcoming,
         'ongoings' : three_ongoing,
@@ -22,6 +37,7 @@ def auction_land(request, *args, **kwargs):
 # ongoing auctions page is here
 def ongoing(request, *args, **kwargs):
     ongoing_product_list = Product.objects.filter(isOngoing=True)
+    print(ongoing_product_list)
     context = {
         'ongoing':ongoing_product_list,
     }
@@ -45,11 +61,7 @@ def upcoming(request, *args, **kwargs):
 def completed(request, *args, **kwargs):
     completed_product_list = Product.objects.filter(isSold=True)
     context = {
-        'completed': completed_product_list,
-        'titleHead':'Completed Auctions',
-               'title':"Product Name" ,
-               'price':1999 ,
-               'buyer':"Buyer name"}
+        'completed': completed_product_list,}
     return render(request,"auction/completedAuction.html",context)
 
 
@@ -91,23 +103,30 @@ def productCreate(request, *args, **kwargs):
         except:
             image5 = None
 
-        listed_by_user = Account.objects.get(id=request.user.pk)
-        current_product = Product()
-        current_product.name = title
-        current_product.description = description
-        current_product.base_price = basePrice 
-        current_product.current_price = basePrice
-        current_product.listedBy = listed_by_user
-        current_product.category = None
-        current_product.image1 = image1
-        current_product.image2 = image2
-        current_product.image3 = image3
-        current_product.image4 = image4
-        current_product.image5 = image5
-        current_product.isUpcoming = True
+        listed_by_user                  = Account.objects.get(id=request.user.pk)
+        current_product                 = Product()
+        current_product.name            = title
+        current_product.description     = description
+        current_product.base_price      = basePrice 
+        current_product.current_price   = basePrice
+        current_product.listedBy        = listed_by_user
+        current_product.category        = None
+        current_product.image1          = image1
+        current_product.image2          = image2
+        current_product.image3          = image3
+        current_product.image4          = image4
+        current_product.image5          = image5
+        current_product.isUpcoming      = True
         current_product.save()
     context = {}
     return render(request, 'auction/addProduct.html',context)
 
 
 
+def price_update(request, id, *args, **kwargs):
+    if request.method == "POST":
+        product = Product.objects.get(pk = id)
+        product.current_price = request.POST['bid']
+        product.current_bidder = request.user.username
+        product.save()
+        return redirect('product',id)

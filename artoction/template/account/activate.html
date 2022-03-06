@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="activate">
+    <h1>Activate your account after submitting your address and document proof</h1>
+    <form action="" method="POST">
+        <div class="div-address">
+            <label for="address">Enter your address</label>
+            <input type="text" name="addLine1" placeholder="Address line 1">
+            <input type="text" name="addLine2" placeholder="Address line 2">
+            <input type="text" name="addLine3" placeholder="Address line 3">
+            <input type="text" name="addLine4" placeholder="Address line 4">
+            {% csrf_token %}    
+        </div>
+        <div class="div-proof">
+            <label for="doc">Attach address proof</label>
+            <input type="file" name="doc" id="">
+        </div>
+        <div class="read-hiw">
+            <input type="checkbox" name="agree" id="">
+            <label for="agree">I have read <a href="" class="hiwa" target="blank">how it works</a>.</label>
+        </div>
+        
+        <button type="submit">Submit</button>
+    </form>
+</div>
+{% endblock content %}
