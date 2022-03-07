@@ -31,6 +31,7 @@ from artadmin.views import (
     activate_account,
     change_feedback_status,
     address_verification,
+    change_address_status,
 )
 
 
@@ -78,6 +79,7 @@ urlpatterns = [
     path('deactivate-user/<int:id>',deactivate_account,name="deactivateUser"),
     path('feedback-status-change/<int:id>',change_feedback_status,name="changeFeedbackStatus"),
     path('address-verification',address_verification,name="addressVerification"),
+    path('<int:id>address-status',change_address_status,name='addressStatus'),
 
     # home app
     path('', landing_view, name="home"),

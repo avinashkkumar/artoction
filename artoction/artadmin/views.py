@@ -106,3 +106,20 @@ def address_verification(request,*args, **kwargs):
         "plist" : feedback_list,
     }
     return render(request, "admin/AdminAddressVerification.html",context)
+
+
+
+
+
+def change_address_status(request, id, *args, **kwargs):
+    if request.method == "POST":
+        address = Address.objects.get(pk = id)
+        if request.POST.get("status") == "apparove":
+            address.is_verified = True
+            account = address.user
+            account.verified_address = True
+            account.save()
+        elif request.POST.get("status") == "reject":
+            address.is_deneyed = True
+        address.save()
+    return redirect("addressVerification")

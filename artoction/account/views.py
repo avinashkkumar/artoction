@@ -275,7 +275,10 @@ def change_address_view(request, id, *args, **kwargs):
             address.address_line_two    = line2
             address.address_line_three  = line3
             address.address_line_four   = line4
-            address.address_proof       = request.FILES.get('doc')
+            address.address_proof       = request.FILES.get("verifydoc")
+            print(request.FILES.get("verifydoc"))
+            address.is_deneyed = False
+            address.is_verified = False
             address.save()
             return redirect('account',request.user.pk)
 
