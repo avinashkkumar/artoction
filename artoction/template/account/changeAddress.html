@@ -31,7 +31,7 @@
         {% endif %}
     </div>
     <div class="change-credentials">
-        <form action="" method="post">
+        <form action="" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="div-address-update">
                 <label for="address">Enter your address</label>
@@ -41,8 +41,8 @@
                 <input type="text" name="addLine4" placeholder="Address line 4">
             </div>
             <div class="div-proof">
-                <label for="doc">Attach address proof</label>
-                <input type="file" name="doc" id="">
+                <label for="verifydoc">Attach address proof</label>
+                <input type="file" name="verifydoc" id="">
             </div>
             <button type="submit">Submit</button>
         </form>

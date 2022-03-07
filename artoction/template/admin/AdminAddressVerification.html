@@ -17,11 +17,12 @@ Artoction | Address Verification
         <div class="feedback-container">
             <div class="feedback-item-one">
                 <ul>
-                    <li class="username">USERNAME</li>
-                    <li class="second-item">EMAIL</li>
+                    <li class="username">{{ address.user.username }}</li>
+                    <li class="second-item">{{ address.user.email }}</li>
                     <li></li>
                 </ul>
-                <form action="" method="post" class="status-form">
+                <form action="{% url 'addressStatus' address.pk %}" method="post" class="status-form">
+                    {% csrf_token %}
                     <select name="status" id="">
                         <option value="apparove">Apparove</option>
                         <option value="reject">Reject</option>
@@ -31,15 +32,15 @@ Artoction | Address Verification
             </div>
             <div class="user-address">
                 <div class="address-written">
-                    <p>Address Line one </p>
-                    <p>address Line two</p>
-                    <p>Some majour or minor city</p>
-                    <p>One of the states of India</p>
+                    <p>{{ address.address_line_one }}</p>
+                    <p>{{ address.address_line_two }}</p>
+                    <p>{{ address.address_line_three }}</p>
+                    <p>{{ address.address_line_four }}</p>
                 </div>
                 <div class="address-document">
-                    <a href="" target="blank">
+                    <a href="static/{{ address.address_proof }}" target="blank">
                         <img src="img/box-arrow-up-right.svg" alt="">
-                        <p>Open Document</p>
+                        <p>Open Do cument</p>
                     </a>
                 </div>
             </div>
