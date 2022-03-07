@@ -205,3 +205,171 @@ td,th{
 th{
     border-bottom: 1px solid black;
 }
+
+
+
+/* ************************ feedback ******************************** */
+.admin-feedback{
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 0rem 2rem 0rem;
+}
+
+.feedback-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2.9rem;
+}
+
+.feedback-container{
+    width: 60rem;
+    padding: 0.8rem;
+    margin: 1rem;
+    border: 2px solid #000000;
+    border-radius: 0.4rem;
+}
+
+.admin-feedback h1{
+    text-align: center;
+    padding-top: 0.8rem;
+}
+
+.feedback-item-one{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.feedback-item-one ul{
+    display: flex;
+    flex-direction: row;
+    width: 22rem;
+}
+
+.feedback-item-one ul li{
+    list-style: none;
+    padding: 0rem 0rem 0.5rem 2rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.second-item{
+    padding-left: 2.9rem;
+}
+
+
+.feedback-item-two{
+    padding: 0.5rem 0rem 0rem 0rem;
+    border-top: 1px solid #000000;
+}
+
+.status-form{
+    display: flex;
+    width: 18rem;
+    justify-content: space-around;
+    margin-bottom: 0.29rem;
+}
+
+.status-form select{
+    width: 7.5rem;
+}
+
+.status-form select, button{
+    padding: 0.29rem ;
+    border-radius: 00.2rem;
+    background-color: #0000001e;
+    font-size: 1rem;
+}
+
+/* ************************ User List ******************************** */
+.admin-account-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.admin-account-list h1{
+    padding: 1.5rem;
+}
+
+.user-list{
+    width: 75rem;
+    padding-bottom: 2rem;
+}
+
+.user-id{
+    width: 5rem;
+}
+
+.user-username{
+    width: 11rem;
+}
+
+.user-email{
+    color: #000000;
+}
+
+.ban-user{
+    width: 8rem;
+    align-items: center;
+}
+
+
+
+/* ************************ address apparoval ******************************** */
+
+.username{
+    font-weight: 900;
+}
+
+.user-address{
+    display: flex;
+    flex-direction: row;
+    padding-top: 0.4rem;
+}
+
+.user-address > *{
+    min-height: 1rem;
+}
+
+
+
+.address-written{
+    flex-basis: 80%;
+    padding: 0.8rem 0rem 0.8rem 5rem;
+    border-top: 2px solid #000000;
+    border-right: none;
+    border-bottom: 2px solid #000000;
+    border-left: 2px solid #000000;
+}
+
+.address-document{
+    flex-basis: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-top: 2px solid #000000;
+    border-right: 2px solid #000000;
+    border-bottom: 2px solid #000000;
+    border-left: 2px solid #000000;
+}
+
+.address-document a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+}
+
+.address-document a img{
+    width: 2rem;
+}
+
+.address-document a p{
+    padding: 0.5rem 0rem 0rem 0rem;
+    color: #000000;
+}

@@ -68,9 +68,9 @@
                     <li>By : {{ this.current_bidder }}</li>
                 </ul>
                 <h3>Bid your price </h3>
-                <form action="" method="post">
+                <form action="{% url 'priceUpdate' this.pk %}" method="post">
                     <label for="yourbid">Append price with my bid : </label><br>
-                    <input type="text" id="yourbid"><br>
+                    <input type="text" id="yourbid" name="bid"><br>
                     <button>Update</button> {% csrf_token %}
                 </form>
             </div>

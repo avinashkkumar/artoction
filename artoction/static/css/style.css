@@ -556,6 +556,7 @@ nav{
     flex-direction: row;
     justify-content: space-around;
     background-color: #c8eaff;
+    padding: 0.5rem 5rem 0.5rem 5rem;
 
 }
 .prof img{
@@ -564,16 +565,12 @@ nav{
     width: 11rem;
     height: 11rem;
 }
-.prof{
-    padding-left: 15rem;
-}
 
 
 .profd{
-    padding-right: 15rem;
+    display: flex;
     align-items: center;
     align-content: center;
-    margin: auto;
 }
 .profd ul{
     list-style-type: none;
@@ -591,6 +588,44 @@ nav{
     border-radius: 00.4rem;
     background-color: #ebebeb;
     padding: 00.2rem;
+}
+
+.account-cc{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.account-cc ul{
+    display: flex;
+    flex-direction: column;
+    min-height: 6rem;
+    justify-content: space-around;
+    list-style: none;
+}
+
+.account-cc ul li{
+    width: 11rem;
+    display: flex;
+    justify-content: center;
+    background-color: #FFFFFF;
+    padding: 0.25rem;
+    border-radius: 0.2rem;
+    border: 1px solid #000000;
+}
+
+.account-cc ul li a{
+    text-decoration: none;
+    color: #000000;
+}
+
+.account-cc ul li form button{
+    font-size: 1.1rem;
+    text-decoration: none;
+    color: #000000;
+    width: 10.9rem;
+    background-color: #FFFFFF;
+    height: 100%;
 }
 
 .preproda{
@@ -1044,3 +1079,92 @@ footer{
         padding-bottom: 0.5rem;
     }   
 }
+
+
+/* ************************ activation ******************************** */
+.activate{
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+}
+
+.activate h1{
+    text-align: center;
+    padding-bottom: 1rem;
+    font-size: 1.6rem;
+}
+
+.activate form{
+    display: flex;
+    flex-direction: column;
+    width: 45rem;
+    align-items: center;
+}
+
+.div-address{
+    display: flex;
+    flex-direction: column;
+    width: 22rem;
+}
+
+.div-address input{
+    padding: 0.2rem;
+    margin: 0.2rem;
+    border: 1px solid black;
+}
+
+.div-proof{
+    display: flex;
+    flex-direction: column;
+    width: 22rem;
+    padding-bottom: 0.5rem;
+}
+
+.read-hiw{
+    width: 22rem;
+    padding: 0rem 0rem 1rem 1rem;
+}
+
+.hiwa{
+    text-decoration: none;
+    color :#5a018d;
+}
+
+
+.activate form button{
+    width: 10rem;
+    padding: 0.4rem;
+    border: 1px solid #000000;
+    border-radius: 0.2rem;
+}
+
+/* ************************ change address ******************************** */
+.change-credentials{
+    display: flex;
+    justify-content: space-around;
+}
+
+.div-address-update{
+    display: flex;
+    flex-direction: column;
+    width: 22rem;
+    padding-bottom: 0.4rem 0rem 0.2rem 0rem;
+}
+
+.div-address-update input{
+    padding: 0.2rem;
+    margin: 0.2rem;
+    border: 1px solid black;
+}
+
+.change-credentials form button{
+    width: 22rem;
+    align-items: center;
+    padding: 0.28rem 0rem 0.2rem 0rem;
+    border: 1px solid #000000;
+}
+
+
+/* ************************  ******************************** */

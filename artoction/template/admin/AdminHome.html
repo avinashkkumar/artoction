@@ -14,23 +14,47 @@ Artoction Admin
 <div class="admin-home">
     <h1 class="admin-welcome"> Artoction Administration</h1>
     <div class="admin-home-content">
-        <div class="card">
-            <div class="svg">
-                <img class="list" src="{% static 'img/list-columns-reverse.svg' %}" alt="">
+        <!-- user section -->
+        <div class="content-div">
+            <h2>User management</h2>
+            <div class="admin-user">
+                <div class="card">
+                    <div class="svg">
+                        <img class="ban" src="{% static 'img/person-lines-fill.svg' %}" alt="">
+                    </div>
+                    <p class="ada"> <a href="{% url 'userAccounts' %}"> User List </a></p>
+                </div>
+                <div class="card">
+                    <div class="svg">
+                        <img class="cycle" src="{% static 'img/arrow-repeat.svg' %}" alt="">
+                    </div>
+                    <p class="ada"> <a href="{% url 'feedbackWorking' %}">Feedback List</a></p>
+                </div>
+                <div class="card">
+                    <div class="svg">
+                        <img class="cycle" src="{% static 'img/arrow-repeat.svg' %}" alt="">
+                    </div>
+                    <p class="ada"> <a href="{% url 'addressVerification' %}">Address Varification</a></p>
+                </div>
             </div>
-            <p class=""> <a href=""> Product List </a></p>
         </div>
-        <div class="card">
-            <div class="svg">
-                <img class="ban" src="{% static 'img/person-lines-fill.svg' %}" alt="">
+        <!-- product setion  -->
+        <div class="content-div">
+            <h2>Product Management</h2>
+            <div class="admin-product">
+                <div class="card">
+                    <div class="svg">
+                        <img class="list" src="{% static 'img/list-columns-reverse.svg' %}" alt="">
+                    </div>
+                    <p class="ada"> <a href="{% url 'adminOngoing' %}"> Product List </a></p>
+                </div>
+                <div class="card">
+                    <div class="svg">
+                        <img class="cycle" src="{% static 'img/arrow-repeat.svg' %}" alt="">
+                    </div>
+                    <p class="ada"> <a href="{% url 'cycle' %}"> Cycle product </a></p>
+                </div>
             </div>
-            <p class=""> <a href=""> User List </a></p>
-        </div>
-        <div class="card">
-            <div class="svg">
-                <img class="cycle" src="{% static 'img/arrow-repeat.svg' %}" alt="">
-            </div>
-            <p class=""> <a href="{% url 'cycle' %}"> Cycle product </a></p>
         </div>
     </div>
 </div>
