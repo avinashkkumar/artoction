@@ -122,7 +122,15 @@ def register_view(request, *args, **kwargs):
             )
             conf_email.fail_silently = True
             conf_email.send()
-            return redirect('home')
+            context = {
+                "output" : "Your account has been created, and email has been sent to you to activate your account.",
+                "url" : "/",
+                "buttonName" : "Get back Home",
+                "symbol" : "✅"
+            }
+            return render(request,'sucessPage.html',context)
+
+
         else:
             return render(request, 'account/register.html',context)
             
@@ -270,13 +278,17 @@ def change_address_view(request, id, *args, **kwargs):
                 line4   = request.POST.get('addLine4')
             except:
                 line4   = None
-            address = Address.objects.get(user=id)
+            try:
+                address = Address.objects.get(user=id)
+            except:
+                address = Address()
+                address.user = request.user
+
             address.address_line_one    = line1
             address.address_line_two    = line2
             address.address_line_three  = line3
             address.address_line_four   = line4
             address.address_proof       = request.FILES.get("verifydoc")
-            print(request.FILES.get("verifydoc"))
             address.is_deneyed = False
             address.is_verified = False
             address.save()

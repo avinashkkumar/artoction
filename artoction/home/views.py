@@ -25,3 +25,11 @@ def feedback(request, *args, **kwargs):
             review.save()
         last = request.POST['next']
         return redirect(last)
+
+
+def page_not_found(request, *args, **kwargs):
+    return render(request,"pageNotFound.html")
+
+
+def how_it_works(request, *args, **kwargs):
+    return render(request, "page.html")

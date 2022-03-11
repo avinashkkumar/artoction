@@ -418,3 +418,8 @@ th{
 .svg-red{
     filter: invert(30%) sepia(95%) saturate(2723%) hue-rotate(340deg) brightness(113%) contrast(101%);
 }
+
+.no-anchor{
+    text-decoration: none;
+    color: #000000;
+}

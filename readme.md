@@ -37,3 +37,16 @@ The code is free for reuse for the collaborator with mention for the  creaters i
 * [Snehal Bargaje](https://github.com/snehalbargaje291)
   * [telegram]()
   * [Mail]()
+
+
+> # Added Points for trouble shooting
+> * The Auction Page will not work untill there are three products for each category.
+<br>
+<br>
+
+>  ## Basic trouble shooting if your are not able to run developement server
+>  * Check if you have installed the python on your system.
+>  * Check if all your python dependendencies are are installed from requirement.txt
+>  * You have configured the postgres for use by providing the required essentials in .env file
+>  * if you are not using the postgres comment line 101-113 in settings file of the main project, and uncomment line 93 - 98.
+>    

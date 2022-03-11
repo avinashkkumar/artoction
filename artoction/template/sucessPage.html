@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="register">
+    <h1 style="font-size:2.6rem;color:#47CF73;font-weight:900">{{ symbol }}</h1>
+    <h2 style="margin-top:1rem;">{{ output }}</h2>
+    <a href="{{ url }}">{{ buttonName }}</a>
+
+</div>
+{% endblock content %}

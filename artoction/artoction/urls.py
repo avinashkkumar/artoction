@@ -32,6 +32,7 @@ from artadmin.views import (
     change_feedback_status,
     address_verification,
     change_address_status,
+    remove_product,
 )
 
 
@@ -39,6 +40,8 @@ from home.views import (
     landing_view,
     productSearch,
     feedback,
+    page_not_found,
+    how_it_works,
     )
 
 from auction.views import (
@@ -79,12 +82,15 @@ urlpatterns = [
     path('deactivate-user/<int:id>',deactivate_account,name="deactivateUser"),
     path('feedback-status-change/<int:id>',change_feedback_status,name="changeFeedbackStatus"),
     path('address-verification',address_verification,name="addressVerification"),
-    path('<int:id>address-status',change_address_status,name='addressStatus'),
+    path('<int:id>/address-status',change_address_status,name='addressStatus'),
+    path("<int:id>/remove-product",remove_product,name="removeProduct"),
 
     # home app
     path('', landing_view, name="home"),
     path('search', productSearch, name="search"),
     path('feedback', feedback, name='feedback'),
+    path('page-not-found',page_not_found,name='notFound'),
+    path('how-it-works',how_it_works,name="howItWorks"),
 
     # auction app
     path('auction', auction_land, name='auctions'),

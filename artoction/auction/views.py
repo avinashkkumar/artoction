@@ -73,60 +73,78 @@ def product(request,id = None, *args, **kwargs):
 
 
 def productCreate(request, *args, **kwargs):
-    if request.method == 'POST':
-        title = request.POST['Title']
-        description = request.POST['description']
-        basePrice = request.POST['basePrice']
-        # getting first image
-        try:
-            image1 = request.FILES['image1']
-        except:
-            image1 = None
-        # getting second image
-        try:
-            image2 = request.FILES['image2']
-        except:
-            image2 = None
-        # getting third image
-        try:
-            image3 = request.FILES['image3']
-        except:
-            image3 = None
-        # getting fourth image
-        try:
-            image4 = request.FILES['image4']
-        except:
-            image4 = None
-        # getting fifth image    
-        try:
-            image5 = request.FILES['image5']
-        except:
-            image5 = None
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            title = request.POST['Title']
+            description = request.POST['description']
+            basePrice = request.POST['basePrice']
+            # getting first image
+            try:
+                image1 = request.FILES['image1']
+            except:
+                image1 = None
+            # getting second image
+            try:
+                image2 = request.FILES['image2']
+            except:
+                image2 = None
+            # getting third image
+            try:
+                image3 = request.FILES['image3']
+            except:
+                image3 = None
+            # getting fourth image
+            try:
+                image4 = request.FILES['image4']
+            except:
+                image4 = None
+            # getting fifth image    
+            try:
+                image5 = request.FILES['image5']
+            except:
+                image5 = None
 
-        listed_by_user                  = Account.objects.get(id=request.user.pk)
-        current_product                 = Product()
-        current_product.name            = title
-        current_product.description     = description
-        current_product.base_price      = basePrice 
-        current_product.current_price   = basePrice
-        current_product.listedBy        = listed_by_user
-        current_product.category        = None
-        current_product.image1          = image1
-        current_product.image2          = image2
-        current_product.image3          = image3
-        current_product.image4          = image4
-        current_product.image5          = image5
-        current_product.isUpcoming      = True
-        current_product.save()
-    context = {}
-    return render(request, 'auction/addProduct.html',context)
-
+            listed_by_user                  = Account.objects.get(id=request.user.pk)
+            current_product                 = Product()
+            current_product.name            = title
+            current_product.description     = description
+            current_product.base_price      = basePrice 
+            current_product.current_price   = basePrice
+            current_product.listedBy        = listed_by_user
+            current_product.category        = None
+            current_product.image1          = image1
+            current_product.image2          = image2
+            current_product.image3          = image3
+            current_product.image4          = image4
+            current_product.image5          = image5
+            current_product.isUpcoming      = True
+            current_product.save()
+            context = {
+                "output" : "Your product has been added to the upcoming auction listing",
+                "url" : "/",
+                "buttonName" : "Get back Home",
+                "symbol" : "✅"
+            }
+            return render(request,'sucessPage.html',context)
+        elif request.method == "GET":
+            return render(request, 'auction/addProduct.html')
+    else:
+        return redirect("login")
 
 
 def price_update(request, id, *args, **kwargs):
     if request.method == "POST":
         product = Product.objects.get(pk = id)
-        product.current_price = request.POST['bid']
-        product.current_bidder = request.user.username
-        product.save()
+        if int(product.current_price) < int(request.POST['bid']):
+            product.current_price = request.POST['bid']
+            product.current_bidder = request.user.username
+            product.save()
+        else:
+            context = {
+                "output" : "Your Price was not updated",
+                "url" : request.headers.get("Referer"),
+                "buttonName" : "Get Back",
+                "symbol" : "❌"
+            }
+            return render(request,"sucessPage.html",context)
         return redirect('product',id)

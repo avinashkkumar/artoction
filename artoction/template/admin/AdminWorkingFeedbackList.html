@@ -24,7 +24,7 @@ Artoction | User List
                 <div class="feedback-item-one">
                     <ul>
                         <li>{{ feedback.user.username}}</li>
-                        <li class="second-item">EMAIL</li>
+                        <li class="second-item">{{ feedback.user.email }}</li>
                         <li></li>
                     </ul>
                     <form action="{% url 'changeFeedbackStatus' feedback.pk %}" method="post" class="status-form">

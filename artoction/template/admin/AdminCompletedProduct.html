@@ -37,8 +37,8 @@ Artoction Admin | Ongoing Auctions
                 <!-- loop here  -->
                 {% for product in products %}
                 <tr>
-                    <td><a href="{% url 'product' product.pk %}">{{ product.pk }}</a></td>
-                    <td><a href="{% url 'product' product.pk %}">{{ product.name }}</a></td>
+                    <td><a class="no-anchor"href="{% url 'product' product.pk %}">{{ product.pk }}</a></td>
+                    <td><a class="no-anchor" href="{% url 'product' product.pk %}">{{ product.name }}</a></td>
                     <td>{{ product.upload_date }}</td>
                     <td>{{ product.last_bid_date }}</td>
                     {% if not product.current_bidder %}

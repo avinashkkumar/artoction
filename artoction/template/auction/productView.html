@@ -67,12 +67,20 @@
                     <li>Current pricing : INR {{ this.current_price }}</li>
                     <li>By : {{ this.current_bidder }}</li>
                 </ul>
+                {% if request.user.is_authenticated and this.isOngoing %}
                 <h3>Bid your price </h3>
                 <form action="{% url 'priceUpdate' this.pk %}" method="post">
                     <label for="yourbid">Append price with my bid : </label><br>
                     <input type="text" id="yourbid" name="bid"><br>
                     <button>Update</button> {% csrf_token %}
                 </form>
+                {% elif not request.user.is_authenticated %}
+                    <a href="{% url 'login' %}"> Login to Start Bidding</a>
+                {% elif this.isUpcoming%}
+                    <h3>This product will go on sale soon </h3>
+                {% elif this.isSold %}
+                    <h3> this product is sold to {{ this.current_bidder }}</h3>
+                {% endif %}
             </div>
         </div>
     </div>

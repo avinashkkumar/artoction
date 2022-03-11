@@ -37,8 +37,8 @@ Artoction Admin | Ongoing Auctions
                 <!-- loop here  -->
                 {% for product in products %}
                 <tr>
-                    <td>{{ product.pk }}</td>
-                    <td>{{ product.name }}</td>
+                    <td><a class="no-anchor"href="{% url 'product' product.pk %}">{{ product.pk }}</a></td>
+                    <td><a class="no-anchor" href="{% url 'product' product.pk %}">{{ product.name }}</a></td>
                     <td>{{ product.upload_date }}</td>
                     {% if not product.current_bidder %}
                     <td>None</td>
@@ -46,7 +46,7 @@ Artoction Admin | Ongoing Auctions
                     <td>{{ product.current_bidder }}</td>
                     {% endif %}
                     <td class="delete-cell">
-                        <a href="">
+                        <a href="{% url 'removeProduct' product.pk %}">
                             <img src="{% static 'img/trash3.svg' %}" alt="">
                         </a>
                     </td>
